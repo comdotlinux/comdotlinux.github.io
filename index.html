@@ -45,9 +45,9 @@
 								<li><a href="#">Veroeros feugiat</a></li>
 							</ul>
 						</li>
-						<li><a href="left-sidebar.html">Left Sidebar</a></li>
+						<!-- <li><a href="left-sidebar.html">Left Sidebar</a></li>
 						<li><a href="right-sidebar.html">Right Sidebar</a></li>
-						<li><a href="no-sidebar.html">No Sidebar</a></li>
+						<li><a href="no-sidebar.html">No Sidebar</a></li> -->
 					</ul>
 				</nav>
 
@@ -56,7 +56,7 @@
 					<div class="content">
 						<h2>Experience in Java / Javascript Devlopment</h2>
 						<p>9 years Programming, 2 Years functional Testing and Half a Year of Non Functional Testing</p>
-						<a href="#main" class="button scrolly">Contact Me</a>
+						<a href="#contact" class="button scrolly">Contact Me</a>
 					</div>
 				</section>
 
@@ -67,9 +67,9 @@
 							<div class="col-12">
 
 								<!-- Highlight -->
-									<section class="box highlight">
+									<!-- <section class="box highlight">
 										<ul class="special">
-											<li><a href="https://www.linkedin.com/in/comdotlinux/" class="icon brands fa-linkedin-in><span class="label">LinkedIn</span></a></li>
+											<li><a href="https://www.linkedin.com/in/comdotlinux/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 											<li><a href="#" class="icon solid fa-tablet-alt"><span class="label">Tablet</span></a></li>
 											<li><a href="#" class="icon solid fa-flask"><span class="label">Flask</span></a></li>
 											<li><a href="#" class="icon solid fa-cog"><span class="label">Cog?</span></a></li>
@@ -82,7 +82,7 @@
 											Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus. Praesent semper mod quis eget mi. Etiam eu<br />
 											ante risus. Aliquam erat volutpat. Aliquam luctus et mattis lectus amet pulvinar. Nam nec turpis consequat.
 										</p>
-									</section>
+									</section> -->
 
 							</div>
 							<div class="col-12">
@@ -96,10 +96,15 @@
 
 													<!-- Feature -->
 														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-															<h3><a href="#">Jakarta EE / Eclipse Microprofile / Quarkus</a></h3>
+															<a href="https://jakarta.ee/about/" class="image featured"><img src="images/jakarta_ee_logo_schooner_color_stacked_default.png" alt="Jakarta EE" /></a>
+															<h3><a href="https://jakarta.ee/about/">Jakarta EE</a></h3>
 															<p>
-																I am well versed with Jakarta EE (Previously known as Java EE) and also some new frameworks targeted towards cloud deployments.
+																I am well versed with Jakarta EE (Previously known as Java EE). Since Java EE 5 the framework has transformed into a very productive yet stable platform
+																to develop web applications that not only are secure and extensible but also are able to communicate with wide variety of servies using standard protocols
+																all the while being inherently separated infrastrucure and business code. Further since many competing application servers are available, if we use oly the API's
+																i.e. the standard interfaces then not only is it possible to switch a application server vendor but it is almost painless.
+																/  /
+																and also some new frameworks targeted towards cloud deployments.
 																Some are <a href="https://quarkus.io/">Quarkus</a>, Micronaut and Helidion
 															</p>
 														</section>
@@ -109,93 +114,101 @@
 
 													<!-- Feature -->
 														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-															<h3><a href="#">Experience With Spring</a></h3>
+															<a href="https://microprofile.io" class="image featured"><img src="images/MicroProfile.png" alt="Microprofile" /></a>
+															<h3><a href="#">Eclipse Microprofile</a></h3>
 															<p>
-																Used Spring framework extensively along with Spring batch.
-																Familiar with Spring Boot
+																Building up on the Jakarta EE platform, Microprofile Specification brings a fast paced (releases 4 times a year)
+																add-ons or tools for the could native microservices. These are Microprofile Config, Metrics, Fault Tolerance and Health Checks to name a few.
+																The cherry on top is these are already implemented by virtually all Major Application server vendors so this adds no extra weight to the Jakarta EE thin war.
 															</p>
 														</section>
 
 												</div>
 												<div class="col-3 col-6-medium col-12-small">
 
+														<!-- Feature -->
+															<section class="box feature">
+																<a href="https://quarkus.io" class="image featured"><img src="images/Quarkus.png" alt="Quarkus" /></a>
+																<h3><a href="#">Quarkus</a></h3>
+																<p>
+																	Using Microprofile and other proven specs like JAX-RS, Red Hat has created and released a framework that is built to run on cloud.
+																	This is Quarkus -- Supersonic Subatomic Java. Using Oracle Labs GraalVM we can AOT compile Quarkus and our business code into a
+																	statically linked binary that can onlt only start in less than 100 milliseconds but also consumes less memory and hence can have more replicas serving more requests.
+																	But Also the running on the JVM is optimized by compile time optimizations to make it extremely productive.
+																</p>
+															</section>
+
+													</div>
+													<div class="col-3 col-6-medium col-12-small">
+
+															<!-- Feature -->
+																<section class="box feature">
+																	<a href="https://www.docker.com/why-docker" class="image featured"><img src="images/Docker.png" alt="" /></a>
+																	<h3><a href="https://www.docker.com/why-docker">Docker</a></h3>
+																	<p>
+																		Docker revolutionized the packaging and distribution of software by defining esentially a blue print
+																		to build the application right from the OS to the code we write. It eliminated the impedence mismatch between Developer workstation and pre-prod / prod environmets.
+																		When paired with Jakarta EE or Quarkus We can leverage docker's layered file system to only push / pull the top changed business code and rest is only once.
+																	</p>
+																</section>
+
+													</div>
+													<div class="col-3 col-6-medium col-12-small">
 													<!-- Feature -->
 														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-															<h3><a href="#">And Another</a></h3>
+															<a href="https://git-scm.com/" class="image featured"><img src="images/Git.png" alt="git" /></a>
+															<h3><a href="https://git-scm.com/">Git</a></h3>
 															<p>
-																Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in
-																lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
+																I read somewhere and I agree that it's not an understatement that Linux Torwalds will be remembered for GIT more than Linux Kernel.
+																The way Git has revolutionized the version control landspace and combined with Github or Gitlab has compelled
+																even the likes of Microsoft to take notice and start to use it.
+																I am proficient with Git and use it regularly within and out of work, however I am always finding out how Git is way smarter than I realize and there is always something to learn.
 															</p>
 														</section>
 
-												</div>
-												<div class="col-3 col-6-medium col-12-small">
+													</div>
+													<div class="col-3 col-6-medium col-12-small">
 
-													<!-- Feature -->
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-															<h3><a href="#">And One More</a></h3>
-															<p>
-																Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in
-																lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
-															</p>
-														</section>
+														<!-- Feature -->
+															<section class="box feature">
+																<a href="https://spring.io/" class="image featured"><img src="images/icon-spring-framework.svg" alt="Spring" /></a>
+																<h3><a href="https://spring.io/">Experience With Spring</a></h3>
+																<p>
+																	Used Spring framework extensively along with Spring batch.
+																	Spring has become the goto framework for building microservices and the familiarity and semantics along with opinionated but sane defaults
+																	make it very attractive and easy to start. Combined with fat jars the running of servies is more or less painless when a JRE is available.
 
-												</div>
-												<div class="col-3 col-6-medium col-12-small">
+																	I Familiar, comfortable and proficient with Sprint MVC, Spring Data, Sprint Batch and Spring Boot to name a few.
+																</p>
+															</section>
 
-													<!-- Feature -->
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-															<h3><a href="#">And One More</a></h3>
-															<p>
-																Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in
-																lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
-															</p>
-														</section>
+													</div>
+													<div class="col-3 col-6-medium col-12-small">
 
-												</div>
-												<div class="col-3 col-6-medium col-12-small">
+														<!-- Feature -->
+															<section class="box feature">
+																<a href="https://prometheus.io/" class="image featured"><img src="images/prometheus_logo_grey.svg" alt="" /></a>
+																<h3><a href="https://prometheus.io/">Metrics</a></h3>
+																<p>
+																	Using Prometheus we can collect, store and distribute application metrics to Grafana very easily
+																	where we can then plot it using beautiful graphs. Setting it up is very easy and painless and has much greater rewards when queries are properly added to dashboards.
+																</p>
+															</section>
 
-													<!-- Feature -->
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-															<h3><a href="#">And One More</a></h3>
-															<p>
-																Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in
-																lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
-															</p>
-														</section>
+													</div>
+													<div class="col-3 col-6-medium col-12-small">
 
-												</div>
-												<div class="col-3 col-6-medium col-12-small">
+														<!-- Feature -->
+															<section class="box feature">
+																<a href="https://www.openshift.com/" class="image featured"><img src="images/Kubernetes-OpenShift-Logo.png" alt="" /></a>
+																<h3><a href="https://www.openshift.com/">An Implementation of Kubernetes by Read Hat.</a></h3>
+																<p>
+																	Once configured, the scaling, monitoring, rolling releases and routing is easily done using Openshift Web Console
+																	or the commandline interface, taking the provisoning of environments to the next level.
+																</p>
+															</section>
 
-													<!-- Feature -->
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-															<h3><a href="#">And One More</a></h3>
-															<p>
-																Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in
-																lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
-															</p>
-														</section>
-
-												</div>
-												<div class="col-3 col-6-medium col-12-small">
-
-													<!-- Feature -->
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-															<h3><a href="#">And One More</a></h3>
-															<p>
-																Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in
-																lectus dolore. Praesent semper mod quis eget sed etiam eu ante risus.
-															</p>
-														</section>
-
-												</div>
+													</div>
 												<div class="col-12">
 													<ul class="actions">
 														<li><a href="#" class="button large">Do Something</a></li>
@@ -314,11 +327,11 @@
 									<section>
 										<h2 class="major"><span>What's this about?</span></h2>
 										<p>
-											This is <strong>TXT</strong>, yet another free responsive site template designed by
-											<a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a>. It's released under the
-											<a href="http://html5up.net/license/">Creative Commons Attribution</a> license so feel free to use it for
-											whatever you're working on (personal or commercial), just be sure to give us credit for the design.
-											That's basically it :)
+											I am a <strong>Developer</strong> by profession, Love Java, but also am interested in other technologies and languages.
+											I like to use standards as far as possible, where the business requirements are most important, the frameworks stay out of the way,
+											are stable and not only prevent lock-in but also are flexible enough to accomodate business requirements.
+											This is the reaon why I feel <a href="https://jakarta.ee/about/">Jakarta EE</a> with <a href="https://microprofile.io/">Eclipse Microprofile</a>
+											and <a href="https://www.webcomponents.org/introduction">Web Components in the browser</a> are a good choice!
 										</p>
 									</section>
 
@@ -326,13 +339,13 @@
 							<div class="col-12">
 
 								<!-- Contact -->
-									<section>
+									<section id="contact">
 										<h2 class="major"><span>Get in touch</span></h2>
 										<ul class="contact">
 											<li><a class="icon brands fa-github" href="https://github.com/comdotlinux"><span class="label">Github</span></a></li>
 											<li><a class="icon brands fa-twitter" href="https://twitter.com/comdotlinux"><span class="label">Twitter</span></a></li>
-											<li><a class="icon brands fa-whatsapp" href=""><span class="label">Whatsapp</span></a></li>
-											<li><a class="icon brands fa-telegram" href="#"><span class="label">Telegram</span></a></li>
+											<li><a class="icon brands fa-whatsapp" href="https://api.whatsapp.com/send?phone=919850282959"><span class="label">Whatsapp</span></a></li>
+											<li><a class="icon brands fa-telegram" href="https://t.me/@comdotlinux"><span class="label">Telegram</span></a></li>
 											<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/comdotlinux/"><span class="label">LinkedIn</span></a></li>
 										</ul>
 									</section>
