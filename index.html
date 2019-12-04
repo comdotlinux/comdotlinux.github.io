@@ -9,6 +9,8 @@
 		<title>Guruprasad Kulkarni</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/x-ico" href="/favicon.ico">
+		<link rel="shortcut icon" type="image/x-ico" href="/favicon.ico">
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="homepage is-preload">
@@ -16,7 +18,6 @@
 
 			<!-- Header -->
 				<header id="header">
-					<img src="images/MyPhotoCropped.jpg" width="100" class="img-responsive img-thumbnail" alt="My Photo">
 					<div class="logo container">
 						<div>
 							<h1><a href="index.html" id="logo">Guruprasad Kulkarni</a></h1>
@@ -76,11 +77,13 @@
 						<h2>Experience in Java / Javascript Devlopment</h2>
 						<p>9 years Programming, 2 Years functional Testing and Half a Year of Non Functional Testing</p>
 						<h6>Believe in Open Source Software, Linux and Of Course Java! Science and Technology Enthusiast</h6>
-						<p></p>
-						<a href="#contact" class="button scrolly">Contact Me</a>
+						<ul class="actions">
+							<li><a href="#experience" class="button scrolly">Experience</a></li>
+							<li><a href="#about" class="button scrolly">Contact Me</a></li>
+							<li><a href="#previousJob" class="button alt scrolly">Legacy Experience(s)</a></li>
+						</ul>
 					</div>
 				</section>
-
 			<!-- Main -->
 				<section id="main">
 					<div class="container">
@@ -114,127 +117,106 @@
 										<div>
 											<div class="row">
 												<div class="col-3 col-6-medium col-12-small">
-
 													<!-- Feature -->
-														<section class="box feature">
-															<a href="https://jakarta.ee/about/" class="image featured"><img class="img-rounded" src="images/jakarta_ee_logo_schooner_color_stacked_default.png" alt="Jakarta EE" /></a>
-															<h3><a href="https://jakarta.ee/about/">Jakarta EE</a></h3>
-															<p>
-																I am well versed with Jakarta EE (Previously known as Java EE). Since Java EE 5 the framework has transformed into a very productive yet stable platform
-																to develop web applications that not only are secure and extensible but also are able to communicate with wide variety of servies using standard protocols
-																all the while being inherently separated infrastrucure and business code. Further since many competing application servers are available, if we use oly the API's
-																i.e. the standard interfaces then not only is it possible to switch a application server vendor but it is almost painless.
-																Also tried / aware of some new frameworks targeted towards cloud deployments.
-																Some are <a href="https://quarkus.io/">Quarkus</a>, <a href="https://micronaut.io/">Micronaut</a> and <a href="https://helidon.io/">Helidion</a>
-															</p>
-														</section>
-
+													<section class="box feature">
+														<a href="https://jakarta.ee/about/" class="image featured"><img class="img-rounded" src="images/jakarta_ee_logo_schooner_color_stacked_default.png" alt="Jakarta EE" /></a>
+														<h3><a href="https://jakarta.ee/about/">Jakarta EE</a></h3>
+														<p>
+															I am well versed with Jakarta EE (Previously known as Java EE). Since Java EE 5 the framework has transformed into a very productive yet stable platform
+															to develop web applications that not only are secure and extensible but also are able to communicate with wide variety of servies using standard protocols
+															all the while being inherently separated infrastrucure and business code. Further since many competing application servers are available, if we use oly the API's
+															i.e. the standard interfaces then not only is it possible to switch a application server vendor but it is almost painless.
+															Also tried / aware of some new frameworks targeted towards cloud deployments.
+															Some are <a href="https://quarkus.io/">Quarkus</a>, <a href="https://micronaut.io/">Micronaut</a> and <a href="https://helidon.io/">Helidion</a>
+														</p>
+													</section>
 												</div>
 												<div class="col-3 col-6-medium col-12-small">
-
 													<!-- Feature -->
-														<section class="box feature">
-															<a href="https://microprofile.io" class="image featured"><img src="images/MicroProfile.png" alt="Microprofile" /></a>
-															<h3><a href="#">Eclipse Microprofile</a></h3>
-															<p>
-																Building up on the Jakarta EE platform, Microprofile Specification brings a fast paced (releases 4 times a year)
-																add-ons or tools for the could native microservices. These are Microprofile Config, Metrics, Fault Tolerance and Health Checks to name a few.
-																The cherry on top is these are already implemented by virtually all Major Application server vendors so this adds no extra weight to the Jakarta EE thin war.
-															</p>
-														</section>
-
+													<section class="box feature">
+														<a href="https://microprofile.io" class="image featured"><img src="images/MicroProfile.png" alt="Microprofile" /></a>
+														<h3><a href="#">Eclipse Microprofile</a></h3>
+														<p>
+															Building up on the Jakarta EE platform, Microprofile Specification brings a fast paced (releases 4 times a year)
+															add-ons or tools for the could native microservices. These are Microprofile Config, Metrics, Fault Tolerance and Health Checks to name a few.
+															The cherry on top is these are already implemented by virtually all Major Application server vendors so this adds no extra weight to the Jakarta EE thin war.
+														</p>
+													</section>
 												</div>
 												<div class="col-3 col-6-medium col-12-small">
-
-														<!-- Feature -->
-															<section class="box feature">
-																<a href="https://quarkus.io" class="image featured"><img src="images/Quarkus.png" alt="Quarkus" /></a>
-																<h3><a href="#">Quarkus</a></h3>
-																<p>
-																	Using Microprofile and other proven specs like JAX-RS, Red Hat has created and released a framework that is built to run on cloud.
-																	This is Quarkus -- Supersonic Subatomic Java. Using Oracle Labs GraalVM we can AOT compile Quarkus and our business code into a
-																	statically linked binary that can onlt only start in less than 100 milliseconds but also consumes less memory and hence can have more replicas serving more requests.
-																	But Also the running on the JVM is optimized by compile time optimizations to make it extremely productive.
-																</p>
-															</section>
-
-													</div>
-													<div class="col-3 col-6-medium col-12-small">
-
-															<!-- Feature -->
-																<section class="box feature">
-																	<a href="https://www.docker.com/why-docker" class="image featured"><img src="images/Docker.png" alt="" /></a>
-																	<h3><a href="https://www.docker.com/why-docker">Docker</a></h3>
-																	<p>
-																		Docker revolutionized the packaging and distribution of software by defining esentially a blue print
-																		to build the application right from the OS to the code we write. It eliminated the impedence mismatch between Developer workstation and pre-prod / prod environmets.
-																		When paired with Jakarta EE or Quarkus We can leverage docker's layered file system to only push / pull the top changed business code and rest is only once.
-																	</p>
-																</section>
-
-													</div>
-													<div class="col-3 col-6-medium col-12-small">
 													<!-- Feature -->
+													<section class="box feature">
+														<a href="https://quarkus.io" class="image featured"><img src="images/Quarkus.png" alt="Quarkus" /></a>
+														<h3><a href="#">Quarkus</a></h3>
+														<p>
+															Using Microprofile and other proven specs like JAX-RS, Red Hat has created and released a framework that is built to run on cloud.
+															This is Quarkus -- Supersonic Subatomic Java. Using Oracle Labs GraalVM we can AOT compile Quarkus and our business code into a
+															statically linked binary that can onlt only start in less than 100 milliseconds but also consumes less memory and hence can have more replicas serving more requests.
+															But Also the running on the JVM is optimized by compile time optimizations to make it extremely productive.
+														</p>
+													</section>
+												</div>
+												<div class="col-3 col-6-medium col-12-small">
+														<!-- Feature -->
 														<section class="box feature">
-															<a href="https://git-scm.com/" class="image featured"><img src="images/Git.png" alt="git" /></a>
-															<h3><a href="https://git-scm.com/">Git</a></h3>
+															<a href="https://www.docker.com/why-docker" class="image featured"><img src="images/Docker.png" alt="" /></a>
+															<h3><a href="https://www.docker.com/why-docker">Docker</a></h3>
 															<p>
-																I read somewhere and I agree that it's not an understatement that Linux Torwalds will be remembered for GIT more than Linux Kernel.
-																The way Git has revolutionized the version control landspace and combined with Github or Gitlab has compelled
-																even the likes of Microsoft to take notice and start to use it.
-																I am proficient with Git and use it regularly within and out of work, however I am always finding out how Git is way smarter than I realize and there is always something to learn.
+																Docker revolutionized the packaging and distribution of software by defining esentially a blue print
+																to build the application right from the OS to the code we write. It eliminated the impedence mismatch between Developer workstation and pre-prod / prod environmets.
+																When paired with Jakarta EE or Quarkus We can leverage docker's layered file system to only push / pull the top changed business code and rest is only once.
 															</p>
 														</section>
+												</div>
+												<div class="col-3 col-6-medium col-12-small">
+													<!-- Feature -->
+													<section class="box feature">
+														<a href="https://git-scm.com/" class="image featured"><img src="images/Git.png" alt="git" /></a>
+														<h3><a href="https://git-scm.com/">Git</a></h3>
+														<p>
+															I read somewhere and I agree that it's not an understatement that Linux Torwalds will be remembered for GIT more than Linux Kernel.
+															The way Git has revolutionized the version control landspace and combined with Github or Gitlab has compelled
+															even the likes of Microsoft to take notice and start to use it.
+															I am proficient with Git and use it regularly within and out of work, however I am always finding out how Git is way smarter than I realize and there is always something to learn.
+														</p>
+													</section>
+												</div>
+												<div class="col-3 col-6-medium col-12-small">
+													<!-- Feature -->
+													<section class="box feature">
+														<a href="https://spring.io/" class="image featured"><img src="images/icon-spring-framework.svg" alt="Spring" /></a>
+														<h3><a href="https://spring.io/">Experience With Spring</a></h3>
+														<p>
+															Used Spring framework extensively along with Spring batch.
+															Spring has become the goto framework for building microservices and the familiarity and semantics along with opinionated but sane defaults
+															make it very attractive and easy to start. Combined with fat jars the running of servies is more or less painless when a JRE is available.
 
-													</div>
-													<div class="col-3 col-6-medium col-12-small">
-
-														<!-- Feature -->
-															<section class="box feature">
-																<a href="https://spring.io/" class="image featured"><img src="images/icon-spring-framework.svg" alt="Spring" /></a>
-																<h3><a href="https://spring.io/">Experience With Spring</a></h3>
-																<p>
-																	Used Spring framework extensively along with Spring batch.
-																	Spring has become the goto framework for building microservices and the familiarity and semantics along with opinionated but sane defaults
-																	make it very attractive and easy to start. Combined with fat jars the running of servies is more or less painless when a JRE is available.
-
-																	I Familiar, comfortable and proficient with Sprint MVC, Spring Data, Sprint Batch and Spring Boot to name a few.
-																</p>
-															</section>
-
-													</div>
-													<div class="col-3 col-6-medium col-12-small">
-
-														<!-- Feature -->
-															<section class="box feature">
-																<a href="https://prometheus.io/" class="image featured"><img src="images/PrometheusGrafana.png" alt="" /></a>
-																<h3><a href="https://prometheus.io/">Metrics</a></h3>
-																<p>
-																	Using Prometheus we can collect, store and distribute application metrics to Grafana very easily
-																	where we can then plot it using beautiful graphs. Setting it up is very easy and painless and has much greater rewards when queries are properly added to dashboards.
-																</p>
-															</section>
-
-													</div>
-													<div class="col-3 col-6-medium col-12-small">
-
-														<!-- Feature -->
-															<section class="box feature">
-																<a href="https://www.openshift.com/" class="image featured"><img src="images/Kubernetes-OpenShift-Logo.png" alt="" /></a>
-																<h3><a href="https://www.openshift.com/">An Implementation of Kubernetes by Red Hat</a></h3>
-																<p>
-																	Once configured, the scaling, monitoring, rolling releases and routing is easily done using Openshift Web Console
-																	or the commandline interface, taking the provisoning of environments to the next level.
-																</p>
-															</section>
-
-													</div>
-												<!-- <div class="col-12">
-													<ul class="actions">
-														<li><a href="#" class="button large">Do Something</a></li>
-														<li><a href="#" class="button alt large">Think About It</a></li>
-													</ul>
-												</div> -->
+															I Familiar, comfortable and proficient with Sprint MVC, Spring Data, Sprint Batch and Spring Boot to name a few.
+														</p>
+													</section>
+												</div>
+												<div class="col-3 col-6-medium col-12-small">
+													<!-- Feature -->
+													<section class="box feature">
+														<a href="https://prometheus.io/" class="image featured"><img src="images/PrometheusGrafana.png" alt="" /></a>
+														<h3><a href="https://prometheus.io/">Metrics</a></h3>
+														<p>
+															Using Prometheus we can collect, store and distribute application metrics to Grafana very easily
+															where we can then plot it using beautiful graphs. Setting it up is very easy and painless and has much greater rewards when queries are properly added to dashboards.
+														</p>
+													</section>
+												</div>
+												<div class="col-3 col-6-medium col-12-small">
+													<!-- Feature -->
+														<section class="box feature">
+															<a href="https://www.openshift.com/" class="image featured"><img src="images/Kubernetes-OpenShift-Logo.png" alt="" /></a>
+															<h3><a href="https://www.openshift.com/">An Implementation of Kubernetes by Red Hat</a></h3>
+															<p>
+																Once configured, the scaling, monitoring, rolling releases and routing is easily done using Openshift Web Console
+																or the commandline interface, taking the provisoning of environments to the next level.
+															</p>
+														</section>
+												</div>
 											</div>
 										</div>
 									</section>
@@ -243,7 +225,7 @@
 							<div class="col-12">
 
 								<!-- Experience -->
-									<section class="box blog">
+									<section class="box blog" id="experience">
 										<h2 class="major"><span>Proffesional Experience</span></h2>
 										<div>
 											<div class="row">
@@ -251,18 +233,18 @@
 													<div class="content">
 
 														<!-- Current -->
-															<article class="box post">
+															<article class="box post" id="currentJob">
 																<header>
-																	<h3><a href="#currentJob"><a href="https://www.idnow.io/">IDnow GmbH</a></a></h3>
+																	<h3><a href="#"><a href="https://www.idnow.io/">IDnow GmbH</a></a></h3>
 																	<h4>Identity verification platform using mobile and web for various use cases</h4>
 																	<p>Tech lead for the Autoident Product Team</p>
 																	<ul class="meta">
-																		<li class="icon fa-clock">Since January 2019</li>
+																		<li class="icon fa-calendar-alt">Since January 2019</li>
 																		<li class="icon fa-building"><a href="https://goo.gl/maps/fbhzAC6NGDXFrFkD9">München, Germany</a></li>
 																	</ul>
 																	<p>Senior Java Developer</p>
 																	<ul class="meta">
-																			<li class="icon fa-clock">From September 2017 to December 2018</li>
+																			<li class="icon fa-calendar-alt">From September 2017 to December 2018</li>
 																			<li class="icon fa-building"><a href="https://goo.gl/maps/fbhzAC6NGDXFrFkD9">München, Germany</a></li>
 																		</ul>
 																</header>
@@ -283,24 +265,24 @@
 																</p>
 															</article>
 
-															<article class="box post">
+																<article class="box post" id="previousJob">
 																	<header>
-																		<h3><a href="#previousJob"><a href="https://www.accenture.com/in-en">Accenture</a></a></h3>
+																		<h3><a href="#"><a href="https://www.accenture.com/in-en">Accenture</a></a></h3>
 																		<h4>Banking portal development for the second largest bank in Germany.</h4>
 																		<p>Non Functional Testing Team Member</p>
 																		<ul class="meta">
-																			<li class="icon fa-clock">From January 2017 to September 2017</li>
+																			<li class="icon fa-calendar-alt">From January 2017 to September 2017</li>
 																			<li class="icon fa-building"><a href="https://goo.gl/maps/sfAgDHX3qT1egVJp7">Frankfurt, Germany</a></li>
 																		</ul>
 																		<p>Team Lead</p>
 																		<ul class="meta">
-																			<li class="icon fa-clock">From December 2015 to December 2017</li>
+																			<li class="icon fa-calendar-alt">From December 2015 to December 2017</li>
 																			<li class="icon fa-building"><a href="https://goo.gl/maps/sfAgDHX3qT1egVJp7">Frankfurt, Germany</a></li>
 																			<li class="icon fa-building"><a href="https://goo.gl/maps/NLCDP3ycMBokK5bd7">Pune, Maharashtra</a></li>
 																		</ul>
 																		<p>Senior Software Developer</p>
 																		<ul class="meta">
-																			<li class="icon fa-clock">From September 2014 to December 2015</li>
+																			<li class="icon fa-calendar-alt">From September 2014 to December 2015</li>
 																			<li class="icon fa-building"><a href="https://goo.gl/maps/NLCDP3ycMBokK5bd7">Pune, Maharashtra</a></li>
 																		</ul>
 																	</header>
@@ -328,7 +310,7 @@
 																			<h4>Customized pay per view mobile web app for video delivery</h4>
 																			<p>Senior Software Engineer</p>
 																			<ul class="meta">
-																				<li class="icon fa-clock">From April 2014 to August 2014</li>
+																				<li class="icon fa-calendar-alt">From April 2014 to August 2014</li>
 																				<li class="icon fa-building"><a href="https://goo.gl/maps/NLCDP3ycMBokK5bd7">Pune, Maharashtra</a></li>
 																			</ul>
 																		</header>
@@ -340,28 +322,28 @@
 																			<p>Senior Software Developer</p>
 																			<h7>Investment Management & General Ledger Systems</h7>
 																			<ul class="meta">
-																				<li class="icon fa-clock">From August 2013 to April 2014</li>
+																				<li class="icon fa-calendar-alt">From August 2013 to April 2014</li>
 																				<li class="icon fa-building"><a href="https://goo.gl/maps/NLCDP3ycMBokK5bd7">Pune, Maharashtra</a></li>
 																				<li class="icon fa-building"><a href="https://goo.gl/maps/WhreFdigpA8KJwnd8">York, UK</a></li>
 																			</ul>
 																			<p>Senior Software Developer</p>
 																			<h7>End To End General Insurance Product Designed and Developed by Wipro.</h7>
 																			<ul class="meta">
-																				<li class="icon fa-clock">From January 2010 to August 2013</li>
+																				<li class="icon fa-calendar-alt">From January 2010 to August 2013</li>
 																				<li class="icon fa-building"><a href="https://goo.gl/maps/NLCDP3ycMBokK5bd7">Pune, Maharashtra</a></li>
 																				<li class="icon fa-building"><a href="https://goo.gl/maps/LwS7q8NL3s7PDmpg6">Dublin, Ireland</a></li>
 																			</ul>
 																			<p>Test Engineer</p>
 																			<h7>End To End General Insurance Product Designed and Developed by Wipro.</h7>
 																			<ul class="meta">
-																				<li class="icon fa-clock">From January 2009 to January 2010</li>
+																				<li class="icon fa-calendar-alt">From January 2009 to January 2010</li>
 																				<li class="icon fa-building"><a href="https://goo.gl/maps/NLCDP3ycMBokK5bd7">Pune, Maharashtra</a></li>
 																				<li class="icon fa-building"><a href="https://goo.gl/maps/LwS7q8NL3s7PDmpg6">Dublin, Ireland</a></li>
 																			</ul>
 																			<p>Test Engineer</p>
 																			<h7>Derivatives trading application Regression Testing</h7>
 																			<ul class="meta">
-																				<li class="icon fa-clock">From November 2007 to April 2009</li>
+																				<li class="icon fa-calendar-alt">From November 2007 to April 2009</li>
 																				<li class="icon fa-building"><a href="https://goo.gl/maps/NLCDP3ycMBokK5bd7">Pune, Maharashtra</a></li>
 																			</ul>
 																		</header>
@@ -395,7 +377,7 @@
 																	<article class="box post-summary">
 																		<h3><a href="#">And Another</a></h3>
 																		<ul class="meta">
-																			<li class="icon fa-clock">Yesterday</li>
+																			<li class="icon fa-calendar-alt">Yesterday</li>
 																			<li class="icon fa-comments"><a href="#">184</a></li>
 																		</ul>
 																	</article>
@@ -404,7 +386,7 @@
 																	<article class="box post-summary">
 																		<h3><a href="#">And Another</a></h3>
 																		<ul class="meta">
-																			<li class="icon fa-clock">2 days ago</li>
+																			<li class="icon fa-calendar-alt">2 days ago</li>
 																			<li class="icon fa-comments"><a href="#">286</a></li>
 																		</ul>
 																	</article>
@@ -413,7 +395,7 @@
 																	<article class="box post-summary">
 																		<h3><a href="#">And One More</a></h3>
 																		<ul class="meta">
-																			<li class="icon fa-clock">3 days ago</li>
+																			<li class="icon fa-calendar-alt">3 days ago</li>
 																			<li class="icon fa-comments"><a href="#">8,086</a></li>
 																		</ul>
 																	</article>
@@ -439,25 +421,24 @@
 							<div class="col-12">
 
 								<!-- About -->
-									<section>
-										<h2 class="major"><span>What's this about?</span></h2>
-										<p>
-											I am a <strong>Developer</strong> by profession, Love Java, but also am interested in other technologies and languages.
-											I like to use standards as far as possible, where the business requirements are most important, the frameworks stay out of the way,
-											are stable and not only prevent lock-in but also are flexible enough to accomodate business requirements.
-											This is the reaon why I feel <a href="https://jakarta.ee/about/">Jakarta EE</a> with <a href="https://microprofile.io/">Eclipse Microprofile</a>
-											and <a href="https://www.webcomponents.org/introduction">Web Components in the browser</a> are a good choice!
-										</p>
-									</section>
+								<section id="about">
+									<h2 class="major"><span>What's this about?</span></h2>
+									<img src="images/MyPhotoCropped.jpg" width="100" class="img-responsive img-thumbnail" alt="My Photo">
+									<p>I am a <strong>Developer</strong> by profession, Love Java, but also am interested in other technologies and languages.
+									I like to use standards as far as possible, where the business requirements are most important, the frameworks stay out of the way, are stable and not only prevent lock-in but also are flexible enough to accomodate business requirements.
+									This is the reaon why I feel <a href="https://jakarta.ee/about/">Jakarta EE</a> with <a href="https://microprofile.io/">Eclipse Microprofile</a>
+										and <a href="https://www.webcomponents.org/introduction">Web Components in the browser</a> are a good choice!</p>
+									<p>If you think I could be good fit for a team you know, please feel free to get in touch and we can have a chat.
+									</p>
+								</section>
 
 							</div>
 							<div class="col-12">
-
 								<!-- Contact -->
 									<section id="contact">
 										<h2 class="major"><span>Get in touch</span></h2>
 										<ul class="contact">
-											<li><a class="icon brands fab fa-github" href="https://github.com/comdotlinux"><span class="label">Github</span></a></li>
+											<li><a class="icon brands fa-github" href="https://github.com/comdotlinux"><span class="label">Github</span></a></li>
 											<li><a class="icon brands fa-twitter" href="https://twitter.com/comdotlinux"><span class="label">Twitter</span></a></li>
 											<li><a class="icon brands fa-stack-overflow" href="http://stackoverflow.com/story/comdotlinux"><span class="label">Stackoverflow</span></a></li>
 											<li><a class="icon brands fa-telegram" href="https://t.me/@comdotlinux"><span class="label">Telegram</span></a></li>
@@ -471,7 +452,7 @@
 						<!-- Copyright -->
 						<div id="copyright">
 							<div>Due to time constraints this website is not using <a href="https://www.webcomponents.org/introduction">Web Components</a> yet.</div>
-								<div>This will be remedied in due course by gradually replacing parts by web components</div>
+							<div>This will be remedied in due course by gradually replacing parts by web components</div>
 						</div>
 
 							<div id="copyright">
@@ -482,7 +463,6 @@
 
 					</div>
 				</footer>
-
 		</div>
 
 		<!-- Scripts -->

@@ -1961,24 +1961,24 @@ input, select, textarea {
 				top: -5px;
 			}
 
-				ul.contact li:hover a.fa-facebook {
-					background-color: #3C5A98;
+				ul.contact li:hover a.fa-github {
+					background-color: #24292e;
 				}
 
 				ul.contact li:hover a.fa-twitter {
 					background-color: #2DAAE4;
 				}
 
-				ul.contact li:hover a.fa-dribbble {
-					background-color: #C4376B;
+				ul.contact li:hover a.fa-stack-overflow {
+					background-color: orange;
+				}
+
+				ul.contact li:hover a.fa-telegram {
+					background-color: #32afed;
 				}
 
 				ul.contact li:hover a.fa-linkedin {
 					background-color: #006599;
-				}
-
-				ul.contact li:hover a.fa-instagram {
-					background-color: #2E5E86;
 				}
 
 				ul.contact li:hover a.fa-google-plus {

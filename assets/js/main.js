@@ -30,7 +30,7 @@
 		$('#nav > ul').dropotron({
 			mode: 'fade',
 			noOpenerFade: true,
-			speed: 300,
+			speed: 500,
 			alignment: 'center'
 		});
 
