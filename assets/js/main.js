@@ -71,4 +71,6 @@
 					visibleClass: 'navPanel-visible'
 				});
 
+			$('section.box.feature').hover(_,_ => $('.tech-description').setAttribute('visibility', 'visible').setAttribute('display', 'block'))
+
 })(jQuery);
