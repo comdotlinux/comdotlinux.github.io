@@ -1,0 +1,437 @@
+/* Print Styles for Traditional Resume Layout */
+
+@media print {
+  /* Reset and page setup */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  html {
+    font-size: 12pt;
+    line-height: 1.3;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", serif !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Force light theme colors for print */
+  [data-theme="dark"] body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  [data-theme="dark"] * {
+    background: white !important;
+    color: black !important;
+  }
+  
+  @page {
+    size: A4;
+    margin: 0.75in;
+  }
+  
+  /* Hide web-only elements */
+  nav-header,
+  .nav-container,
+  .theme-toggle,
+  .pdf-button,
+  .site-footer,
+  .skip-link,
+  theme-switcher,
+  button,
+  .nav-social-links {
+    display: none !important;
+  }
+  
+  /* Main content adjustments */
+  .main-content {
+    padding-top: 0 !important;
+    max-width: none !important;
+  }
+  
+  /* Resume Header - Traditional Style */
+  .section-header {
+    text-align: center !important;
+    border-bottom: 2px solid black !important;
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .header-content {
+    max-width: none !important;
+  }
+  
+  .profile-info {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .profile-image {
+    width: 1in !important;
+    height: 1in !important;
+    border: 2px solid black !important;
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .profile-text .name {
+    font-size: 20pt !important;
+    font-weight: bold !important;
+    margin-bottom: 0.25rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+  }
+  
+  .profile-text .title {
+    font-size: 14pt !important;
+    font-weight: normal !important;
+    margin-bottom: 0.25rem !important;
+    font-style: italic !important;
+  }
+  
+  .profile-text .location {
+    font-size: 11pt !important;
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .profile-text .tagline {
+    font-size: 11pt !important;
+    font-style: italic !important;
+  }
+  
+  /* Contact Information - Horizontal */
+  .contact-links {
+    justify-content: center !important;
+    gap: 1rem !important;
+    margin-top: 0.5rem !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .contact-link {
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    font-size: 10pt !important;
+    color: black !important;
+  }
+  
+  .contact-icon {
+    display: none !important;
+  }
+  
+  .contact-text::after {
+    content: " | ";
+    color: #666;
+  }
+  
+  .contact-link:last-child .contact-text::after {
+    content: "";
+  }
+  
+  /* Section Styling */
+  section {
+    margin: 0 !important;
+    padding: 0.5rem 0 !important;
+    max-width: none !important;
+    page-break-inside: avoid;
+  }
+  
+  .section-title {
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    border-bottom: 1px solid black !important;
+    padding-bottom: 0.125rem !important;
+    margin-bottom: 0.5rem !important;
+    text-align: left !important;
+  }
+  
+  /* Professional Summary */
+  .summary-content {
+    text-align: left !important;
+  }
+  
+  .summary-brief {
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* Force expand all details */
+  details {
+    display: block !important;
+  }
+  
+  summary {
+    display: none !important;
+  }
+  
+  .summary-expanded,
+  .job-expanded {
+    display: block !important;
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+  }
+  
+  /* Skills Section - Compact */
+  .skills-container {
+    display: block !important;
+    columns: 2 !important;
+    column-gap: 1rem !important;
+  }
+  
+  .skill-category {
+    break-inside: avoid !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 0.75rem !important;
+    box-shadow: none !important;
+  }
+  
+  .category-title {
+    font-size: 12pt !important;
+    font-weight: bold !important;
+    margin-bottom: 0.25rem !important;
+    text-align: left !important;
+    border-bottom: none !important;
+  }
+  
+  .skill-tags {
+    gap: 0.25rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  .skill-tag {
+    background: none !important;
+    border: none !important;
+    color: black !important;
+    font-size: 10pt !important;
+    padding: 0 !important;
+    display: inline !important;
+  }
+  
+  .skill-tag::after {
+    content: ", ";
+    display: inline !important;
+  }
+  
+  .skill-tag:last-child::after {
+    content: "";
+  }
+  
+  /* Experience Section - Traditional */
+  .current-job {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 1rem !important;
+    box-shadow: none !important;
+  }
+  
+  .previous-jobs {
+    margin-top: 1rem !important;
+  }
+  
+  .subsection-title {
+    font-size: 12pt !important;
+    font-weight: bold !important;
+    margin-bottom: 0.5rem !important;
+    border-bottom: 1px solid #666 !important;
+    padding-bottom: 0.125rem !important;
+  }
+  
+  .jobs-grid {
+    display: block !important;
+  }
+  
+  .experience-item {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 0.75rem !important;
+    box-shadow: none !important;
+    break-inside: avoid !important;
+  }
+  
+  .job-header {
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .job-title {
+    font-size: 12pt !important;
+    font-weight: bold !important;
+    margin-bottom: 0.125rem !important;
+    display: inline !important;
+  }
+  
+  .current-job .job-title {
+    font-size: 13pt !important;
+  }
+  
+  .job-meta {
+    font-size: 11pt !important;
+    margin-bottom: 0.25rem !important;
+    display: block !important;
+  }
+  
+  .company {
+    font-weight: bold !important;
+    color: black !important;
+  }
+  
+  .duration,
+  .location {
+    color: #333 !important;
+    font-style: italic !important;
+  }
+  
+  .duration::before,
+  .location::before {
+    content: " | ";
+    color: #666;
+  }
+  
+  .job-summary {
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .job-summary p {
+    font-size: 11pt !important;
+    margin-bottom: 0.25rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .achievements {
+    margin: 0.25rem 0 !important;
+    padding-left: 1rem !important;
+  }
+  
+  .achievements li {
+    font-size: 10pt !important;
+    margin-bottom: 0.125rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .tech-stack {
+    background: none !important;
+    border: none !important;
+    padding: 0.25rem 0 !important;
+    font-size: 10pt !important;
+    font-style: italic !important;
+    color: #333 !important;
+  }
+  
+  /* Projects Section */
+  .projects-container {
+    margin: 0 !important;
+  }
+  
+  .project-category {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .project-grid {
+    display: block !important;
+    columns: 2 !important;
+    column-gap: 1rem !important;
+  }
+  
+  .project-card {
+    break-inside: avoid !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 0.5rem !important;
+    box-shadow: none !important;
+  }
+  
+  .project-name {
+    font-size: 11pt !important;
+    font-weight: bold !important;
+    margin-bottom: 0.125rem !important;
+  }
+  
+  .project-description {
+    font-size: 10pt !important;
+    margin-bottom: 0.25rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .project-links {
+    gap: 0.5rem !important;
+  }
+  
+  .project-link {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 9pt !important;
+    color: #333 !important;
+    text-decoration: underline !important;
+  }
+  
+  /* Education Section - Inline */
+  .education-compact {
+    font-size: 11pt !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+  }
+  
+  .education-compact strong {
+    font-weight: bold !important;
+  }
+  
+  .education-compact a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+  
+  /* Page breaks */
+  .section-experience {
+    page-break-before: auto !important;
+  }
+  
+  .section-projects {
+    page-break-before: auto !important;
+  }
+  
+  /* Ensure content fits */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid !important;
+  }
+  
+  p, ul, ol {
+    orphans: 3 !important;
+    widows: 3 !important;
+  }
+  
+  /* Links in print */
+  a[href^="http"]:not(.contact-link):not(.education-compact a)::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #666;
+  }
+  
+  /* Remove any remaining web styling */
+  .card,
+  .btn,
+  .nav-social-links,
+  .theme-switcher {
+    display: none !important;
+  }
+}
