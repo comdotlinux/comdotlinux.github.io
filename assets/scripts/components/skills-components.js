@@ -45,11 +45,12 @@ class SkillsGrid extends BaseComponent {
     // Could implement skill details modal or analytics tracking
     console.log(`Skill clicked: ${skillName} (${years} years)`);
     
-    // Add click feedback
+    // Add click feedback without forced reflow
     if (!this.prefersReducedMotion()) {
       tag.style.animation = 'none';
-      tag.offsetHeight; // Trigger reflow
-      tag.style.animation = 'pulse 0.3s ease-in-out';
+      requestAnimationFrame(() => {
+        tag.style.animation = 'pulse 0.3s ease-in-out';
+      });
     }
   }
   

@@ -62,6 +62,9 @@ nav-header.scrolled {
   border-radius: var(--radius-full);
   object-fit: cover;
   border: 2px solid var(--color-primary);
+  /* Prevent layout shift */
+  display: block;
+  aspect-ratio: 1 / 1;
 }
 
 .nav-profile-info {
@@ -209,6 +212,9 @@ resume-header {
   border: 3px solid var(--color-primary);
   box-shadow: var(--shadow-md);
   flex-shrink: 0;
+  /* Prevent layout shift */
+  display: block;
+  aspect-ratio: 1 / 1;
 }
 
 .profile-text .name {
