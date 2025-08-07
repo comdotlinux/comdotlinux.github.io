@@ -55,6 +55,9 @@ class ResumeApplication {
       // Initialize components
       this.initializeComponents();
       
+      // Setup mobile menu
+      this.setupMobileMenu();
+      
       // Set up analytics (if enabled)
       if (APP_CONFIG.analytics.enabled) {
         this.initializeAnalytics();
@@ -211,6 +214,42 @@ class ResumeApplication {
   initializeAnalytics() {
     // Placeholder for analytics implementation
     console.log('Analytics initialized');
+  }
+  
+  /**
+   * Setup mobile menu toggle
+   */
+  setupMobileMenu() {
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.contains('active');
+        menu.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', !isOpen);
+        toggle.textContent = isOpen ? '☰' : '✕';
+      });
+      
+      // Close menu when clicking a link
+      const menuLinks = menu.querySelectorAll('.mobile-menu-link');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.textContent = '☰';
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+          menu.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.textContent = '☰';
+        }
+      });
+    }
   }
   
   /**
