@@ -605,9 +605,9 @@ class ResumeApplication {
   <table class="profile-table">
     <tr>
       <td>
-        <div><strong>11 Years Programming Experience</strong></div>
-        <div><strong>Testing Experience :</strong></div>
-        <div><strong>2 Years Functional & 0.5 Years Non Functional</strong></div>
+        <div><strong>11 years programming experience</strong></div>
+        <div><strong>Testing experience:</strong></div>
+        <div><strong>2 years functional & 0.5 years non-functional</strong></div>
         <div><strong>Experience in Technical Design</strong></div>
         <div><strong>and design execution.</strong></div>
         <div><strong>Successful Launch of Autoident Product</strong></div>
@@ -616,7 +616,7 @@ class ResumeApplication {
       <td>
         <div>Proficient in Java, Jakarta EE, Eclipse</div>
         <div>Microprofile, Docker</div>
-        <div>Worked with Javascript, Web Components</div>
+        <div>Worked with JavaScript, Web Components</div>
         <div>Used Quarkus.io & Micronaut with GraalVM.</div>
         <div>Dabbled with Openshift, Ansible and simple</div>
         <div>go programs.</div>
@@ -626,10 +626,10 @@ class ResumeApplication {
   
   <div class="section-title">SKILLS</div>
   <ul>
-    <li>Proficient in Java, Java / Jakarta EE, Javascript, Web Components, Shell Scripting.</li>
+    <li>Proficient in Java, Java / Jakarta EE, JavaScript, Web Components, Shell Scripting.</li>
     <li>Experience with using Spring & Play Framework.</li>
     <li>Familiar with HTML5, CSS3, Oracle PL/SQL, Go.</li>
-    <li>Junit4 and junit 5 + Easymock, Mockito.</li>
+    <li>JUnit 4 and JUnit 5 + Easymock, Mockito.</li>
     <li>Selenium, Cypress.io + chai & mocha for web Testing.</li>
     <li>Integration testing rest Web Services.</li>
     <li>JPA with MySQL / PostgreSQL & Flyway migrations.</li>
@@ -651,8 +651,8 @@ class ResumeApplication {
       <li>Worked to create backend architecture, microservice communication</li>
       <li>Setup Infrastructure on Amazon AWS using Terraform</li>
       <li>Setup build, deploy and end-to-end pipelines using Github Actions and Codefresh</li>
-      <li>Helped develop new integrations like Minio including but not limited to infrastructure setup</li>
-      <li>Setup prometheus-operator, including loki and promtail for monitoring and log management with the infrastructure setup</li>
+      <li>Helped develop new integrations like MinIO including but not limited to infrastructure setup</li>
+      <li>Set up Prometheus operator, including Loki and Promtail for monitoring and log management with the infrastructure setup</li>
     </ul>
   </div>
   
@@ -996,9 +996,9 @@ class ResumeApplication {
         <table class="profile-table">
           <tr>
             <td>
-              <div><strong>11 Years Programming Experience</strong></div>
-              <div><strong>Testing Experience :</strong></div>
-              <div><strong>2 Years Functional & 0.5 Years Non Functional</strong></div>
+              <div><strong>11 years programming experience</strong></div>
+              <div><strong>Testing experience:</strong></div>
+              <div><strong>2 years functional & 0.5 years non-functional</strong></div>
               <div><strong>Experience in Technical Design</strong></div>
               <div><strong>and design execution.</strong></div>
               <div><strong>Successful Launch of Autoident Product</strong></div>
@@ -1007,7 +1007,7 @@ class ResumeApplication {
             <td>
               <div>Proficient in Java, Jakarta EE, Eclipse</div>
               <div>Microprofile, Docker</div>
-              <div>Worked with Javascript, Web Components</div>
+              <div>Worked with JavaScript, Web Components</div>
               <div>Used Quarkus.io & Micronaut with GraalVM.</div>
               <div>Dabbled with Openshift, Ansible and simple</div>
               <div>go programs.</div>
@@ -1019,10 +1019,10 @@ class ResumeApplication {
       <div class="skills-section">
         <div class="section-title">SKILLS</div>
         <ul>
-          <li>Proficient in Java, Java / Jakarta EE, Javascript, Web Components, Shell Scripting.</li>
+          <li>Proficient in Java, Java / Jakarta EE, JavaScript, Web Components, Shell Scripting.</li>
           <li>Experience with using Spring & Play Framework.</li>
           <li>Familiar with HTML5, CSS3, Oracle PL/SQL, Go.</li>
-          <li>Junit4 and junit 5 + Easymock, Mockito.</li>
+          <li>JUnit 4 and JUnit 5 + Easymock, Mockito.</li>
           <li>Selenium, Cypress.io + chai & mocha for web Testing.</li>
           <li>Integration testing rest Web Services.</li>
           <li>JPA with MySQL / PostgreSQL & Flyway migrations.</li>
@@ -1047,10 +1047,10 @@ class ResumeApplication {
             <li>Worked to create backend architecture, microservice communication</li>
             <li>Setup Infrastructure on Amazon AWS using Terraform</li>
             <li>Setup build, deploy and end-to-end pipelines using Github Actions and Codefresh</li>
-            <li>Helped develop new integrations like Minio including but not limited to infrastructure setup</li>
-            <li>Setup prometheus-operator, including loki and promtail for monitoring and log management with the infrastructure setup</li>
+            <li>Helped develop new integrations like MinIO including but not limited to infrastructure setup</li>
+            <li>Set up Prometheus operator, including Loki and Promtail for monitoring and log management with the infrastructure setup</li>
             <li>Worked and developed stories and saw them delivered to production.</li>
-            <li>Tech Stack: Java 11, Kotlin, Spring Framework, Hasura GraphQL + Postgres, Unit tests using Junit, Deployment with helm to Kubernetes.</li>
+            <li>Tech Stack: Java 11, Kotlin, Spring Framework, Hasura GraphQL + Postgres, Unit tests using JUnit, Deployment with helm to Kubernetes.</li>
             <li>Using Flutter with dart on the apps.</li>
             <li>Helped create a continuous deployment at least to Dev and Continuous Deployment to Production is in progress</li>
           </ul>
@@ -1066,7 +1066,7 @@ class ResumeApplication {
             <li>Setup build, deploy and end-to-end tests for services on Jenkins.</li>
             <li>Worked with product owners and other stakeholders to create stories</li>
             <li>Work and develop stories and see them delivered till live.</li>
-            <li>Used Play Framework, Java 8, Junit, Mockito and docker.</li>
+            <li>Used Play Framework, Java 8, JUnit, Mockito and docker.</li>
             <li>Created ancillary tools using Quarkus and Go to automate repetitive tasks.</li>
           </ul>
         </div>
