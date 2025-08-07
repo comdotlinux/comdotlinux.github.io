@@ -797,6 +797,9 @@ projects-showcase {
   padding: var(--space-lg);
   box-shadow: var(--card-shadow);
   transition: all var(--transition-normal);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -806,6 +809,30 @@ projects-showcase {
 
 .project-card.presentation {
   border-left: 4px solid var(--color-accent);
+}
+
+.project-card .project-description {
+  flex-grow: 1;
+  margin-bottom: var(--space-md);
+}
+
+.project-card .project-links {
+  margin-top: auto;
+}
+
+.project-card.enterprise-wide {
+  grid-column: 1 / -1; /* Span full width */
+}
+
+/* Open source projects grid - 4 columns */
+.project-grid.opensource-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr 1fr !important;
+}
+
+/* Force all open source project cards to single column span */
+.project-card.opensource {
+  grid-column: unset !important;
 }
 
 .project-name {
