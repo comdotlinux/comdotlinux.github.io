@@ -438,6 +438,16 @@ class ResumeApplication {
       console.log('Button by class:', !!buttonByClass);
       console.log('Button by text:', !!buttonByText);
       
+      // Setup mobile PDF button
+      const mobilePDFButton = document.getElementById('mobile-pdf-button');
+      if (mobilePDFButton) {
+        mobilePDFButton.addEventListener('click', (event) => {
+          console.log('Mobile PDF button clicked!');
+          event.preventDefault();
+          this.downloadPDF();
+        });
+      }
+      
       if (buttonByClass) {
         buttonByClass.addEventListener('click', (event) => {
           console.log('PDF button (by class) clicked!');

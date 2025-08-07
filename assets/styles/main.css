@@ -1,5 +1,11 @@
 /* Modern Resume CSS - Main Styles */
 
+/* Hide mobile-only elements on desktop */
+.mobile-pdf-button,
+.mobile-menu-toggle {
+  display: none;
+}
+
 /* CSS Reset and Base Styles */
 *,
 *::before,

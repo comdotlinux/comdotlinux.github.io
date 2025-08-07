@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="stylesheet" href="assets/styles/themes.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="assets/styles/components.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="assets/styles/mobile.css">
     <link rel="stylesheet" href="assets/styles/print.css" media="print">
     
     <!-- Fallback for users without JavaScript -->
@@ -90,6 +91,11 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    ☰
+                </button>
                 
                 <ul class="nav-menu" role="menubar">
                     <li role="none">
@@ -499,6 +505,10 @@
         
     </resume-app>
     
+    <!-- Mobile PDF Button -->
+    <button id="mobile-pdf-button" class="mobile-pdf-button" aria-label="Download PDF">
+        📄 PDF
+    </button>
     
     <!-- PDF Generation Library - Load asynchronously -->
     <script>
