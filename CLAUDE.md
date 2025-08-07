@@ -4,15 +4,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal portfolio website for Guruprasad Kulkarni, hosted on GitHub Pages at `bio.kulkarni.cloud`. It's a static HTML site based on the "TXT by HTML5 UP" template.
+This is a personal portfolio website for Guruprasad Kulkarni, hosted on GitHub Pages at `bio.kulkarni.cloud`. It's a modern static HTML site built with Web Components and vanilla JavaScript.
 
 ## Technology Stack
 
-- **Frontend**: Pure HTML, CSS (compiled from SASS), and jQuery-based JavaScript
-- **CSS Preprocessor**: SASS (source in `/assets/sass/`)
-- **Icons**: Font Awesome
-- **Hosting**: GitHub Pages with custom domain
-- **Node.js**: Version 21.6.2 (specified in `.tool-versions`)
+- **Frontend**: Pure HTML5, CSS3, and Vanilla JavaScript ES6+
+- **Architecture**: Web Components with custom elements
+- **CSS**: Native CSS with custom properties (no preprocessing)
+- **Icons**: Unicode emoji icons
+- **PDF Generation**: html2pdf.js library for client-side PDF export
+- **Development**: browser-sync for live reload
+- **Hosting**: GitHub Pages with custom domain `bio.kulkarni.cloud`
+- **Dependencies**: Zero build tools, no external frameworks
 
 ## Development Commands
 
@@ -22,11 +25,13 @@ This is a personal portfolio website for Guruprasad Kulkarni, hosted on GitHub P
 ```
 This starts a browser-sync server with live reload on file changes.
 
-### Modern Development
-The new website uses pure CSS (no SASS compilation needed) and vanilla JavaScript with Web Components. Simply:
-1. Run `./dev-server.sh` to start the development server
+### Development Workflow
+The website uses modern web standards with no build process:
+1. Run `./dev-server.sh` to start browser-sync development server
 2. Edit HTML, CSS, or JavaScript files directly
-3. Changes will auto-reload in the browser
+3. Changes auto-reload in the browser at http://localhost:3002
+4. All styles use CSS custom properties for theming
+5. Web Components provide modular architecture
 
 ### Testing the Website
 - Open http://localhost:3002 when browser-sync is running
@@ -36,35 +41,52 @@ The new website uses pure CSS (no SASS compilation needed) and vanilla JavaScrip
 
 ## Project Structure
 
-- `/assets/` - Modern static assets
-  - `/styles/` - CSS files (main.css, themes.css, components.css, print.css)
-  - `/scripts/` - JavaScript modules and Web Components
+- `/assets/` - Static assets organized by type
+  - `/styles/` - CSS files with modern architecture
+    - `main.css` - Core layout and typography
+    - `themes.css` - Light/dark theme definitions with CSS custom properties
+    - `components.css` - Component-specific styling
+    - `print.css` - PDF/print optimized styles
+    - `layout.css`, `unified-layout.css` - Alternative layout options
+    - `*-resume.css` - Different resume style variations
+  - `/scripts/` - JavaScript architecture
+    - `main.js` - Application initialization and global functionality
     - `/components/` - Web Component definitions
-  - `/images/` - Optimized images (profile.jpg)
-  - `/data/` - JSON/JS data files (resume-data.js)
-- `index.html` - Modern single-page application
-- `dev-server.sh` - Development server script
-- `PRD.md` - Product Requirements Document
-- `CLAUDE.md` - This development guide
-- `CNAME` - Custom domain configuration
+      - `base-component.js` - Abstract base class for all components
+      - `theme-switcher.js` - Theme toggle functionality
+      - `resume-app.js` - Main application container
+      - `*-components.js` - Specific component implementations
+  - `/images/` - Assets (profile.jpg, favicons)
+  - `/data/` - Centralized data management
+    - `resume-data.js` - All resume content in structured format
+- `index.html` - Single-page application with semantic HTML
+- Alternative pages: `index-simple.html`, `print.html`, `browser-ux-test.html`
+- `dev-server.sh` - Browser-sync development server
+- Test files: `test-*.html`, `ux-validation-test.js`
+- Documentation: `CLAUDE.md`, `PRD.md`, `UX_*.md`
+- Configuration: `CNAME`, favicon files
 
 ## Key Files
 
-- `index.html` - Modern single-page resume application
-- `assets/styles/main.css` - Core styles and layout
-- `assets/styles/themes.css` - Light/dark theme system with CSS custom properties
-- `assets/styles/components.css` - Component-specific styles
-- `assets/scripts/main.js` - Application initialization and global functionality
-- `assets/data/resume-data.js` - Centralized resume content data
+- `index.html` - Main single-page application with Web Components
+- `assets/scripts/main.js` - Application class with PDF generation and global event handling
+- `assets/scripts/components/base-component.js` - Abstract base class with utility methods
+- `assets/data/resume-data.js` - Centralized data store with utility functions
+- `assets/styles/main.css` - Core layout with CSS Grid and responsive design
+- `assets/styles/themes.css` - Theme system using CSS custom properties
+- `dev-server.sh` - Simple browser-sync server with Chrome browser launch
 
 ## Architecture
 
-- **Web Components**: Custom elements for modular, reusable components
-- **CSS Custom Properties**: Theme system supporting light/dark modes
-- **Progressive Enhancement**: Works without JavaScript, enhanced with it
-- **Print Optimization**: Dedicated print styles for PDF generation
-- **Accessibility**: WCAG 2.1 AA compliant with proper ARIA labels
-- **Performance**: Optimized for fast loading with minimal dependencies
+- **Web Components**: Custom elements extending HTMLElement with BaseComponent class
+- **Component Lifecycle**: connectedCallback, disconnectedCallback, attributeChangedCallback patterns
+- **Event Management**: Custom event system with debouncing and throttling utilities
+- **State Management**: Theme persistence via localStorage, reactive UI updates
+- **CSS Architecture**: Custom properties for theming, CSS Grid for layout
+- **Responsive Design**: Mobile-first approach with CSS Grid breakpoints
+- **Accessibility**: Skip links, ARIA labels, keyboard navigation, screen reader support
+- **Performance**: Intersection observers, debounced scroll/resize handlers, minimal DOM manipulation
+- **PDF Generation**: Client-side PDF creation with isolated rendering context
 
 ## Deployment
 
@@ -78,7 +100,8 @@ The website includes a PDF download feature that must generate a traditional res
 - **Font**: Times New Roman, 11pt body text, 22pt header
 - **Colors**: Blue headers (#4472C4), black text on white background
 - **Margins**: 0.5 inch on all sides
-- **Format**: Traditional two-page resume layout
+- **Format**: Single-page resume layout (current implementation)
+- **File Naming**: `Guruprasad_Kulkarni_Resume_DD-MON-YYYY_HHMM.pdf`
 
 ### PDF Content Structure
 1. **Header**: Centered name (blue, large), contact information below
@@ -88,26 +111,38 @@ The website includes a PDF download feature that must generate a traditional res
 5. **EDUCATION**: Centered institutional information
 
 ### Technical Implementation
-- Uses html2pdf.js library for client-side PDF generation
-- Creates isolated iframe to avoid Web Component cloning errors
-- Generates timestamped filenames (DD-MON-YYYY_HHMM format)
-- PDF button in navigation should be hidden in print/PDF output
-- Must match exact formatting from reference screenshots
+- Uses html2pdf.js CDN library loaded in index.html
+- Creates isolated HTML content without Web Components
+- Two PDF generation methods: simple HTML string approach and complex DOM cloning
+- Fallback to browser print dialog if PDF generation fails
+- PDF button with loading states and user feedback
+- Automatic cleanup of temporary DOM elements
 
 ### PDF Generation Process
-1. Button click triggers `generateCleanPDF()` method
-2. Creates hidden iframe with clean HTML (no Web Components)
-3. Applies traditional resume CSS styling
-4. Uses html2pdf to convert and download
-5. Cleans up iframe after generation
+1. PDF button click triggers `downloadPDF()` in main.js:462
+2. Primary method uses `generateSimplePDF()` creating clean HTML string
+3. Creates temporary iframe with traditional resume styling
+4. html2pdf converts iframe content to PDF with A4 format
+5. Automatic cleanup and button state reset
+6. User confirmation for fallback to browser print on errors
 
-## Important Notes
+## Development Notes
 
-- Pure HTML5, CSS3, and ES6+ JavaScript - no frameworks or build tools required
-- Web Components provide modularity without external dependencies  
-- Theme system uses CSS custom properties for instant theme switching
-- Print styles automatically optimize layout for PDF export
-- PDF generation uses isolated iframe to avoid Web Component conflicts
-- All content is centralized in `assets/data/resume-data.js` for easy updates
-- Responsive design works from mobile to desktop
-- Fully accessible with keyboard navigation and screen reader support
+- **Zero Dependencies**: No npm, webpack, or build process required
+- **Web Standards**: Uses native Web Components API, CSS custom properties, ES6+ modules
+- **Data-Driven**: All content centralized in `resume-data.js` with utility functions
+- **Theme System**: CSS custom properties enable instant light/dark mode switching
+- **Component Architecture**: BaseComponent class provides common functionality (observers, utilities, lifecycle)
+- **Event System**: Custom events for component communication, debounced handlers for performance
+- **Accessibility**: Skip links, ARIA attributes, keyboard navigation, screen reader optimization
+- **Responsive**: CSS Grid layout with mobile-first breakpoints
+- **PDF Export**: Client-side generation with html2pdf.js, fallback to print dialog
+- **Performance**: Intersection observers, minimal DOM manipulation, lazy loading patterns
+
+## Testing and Debugging
+
+- Use browser DevTools to inspect Web Components
+- Global variables: `window.resumeApp`, `window.RESUME_DATA`, `window.downloadPDF()`
+- Test PDF functionality: `window.testPDF()` function available
+- Theme switching: Persisted in localStorage, respects system preferences
+- Multiple layout variations available for testing different designs
