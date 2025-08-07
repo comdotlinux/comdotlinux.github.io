@@ -1,8 +1,7 @@
 /* Modern Resume CSS - Main Styles */
 
 /* Hide mobile-only elements on desktop */
-.mobile-pdf-button,
-.mobile-menu-toggle {
+.mobile-pdf-button {
   display: none;
 }
 
@@ -396,7 +395,11 @@ details[open] summary::before {
     max-height: none;
     overflow-y: visible;
     padding-right: 0;
-    order: -1; /* Show skills before experience on mobile */
+    order: 1; /* Show skills after experience on mobile */
+  }
+  
+  .experience-skills-wrapper .section-experience {
+    order: 0; /* Show experience before skills on mobile */
   }
   
   /* Reset education styling on mobile */

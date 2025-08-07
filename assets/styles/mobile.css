@@ -50,14 +50,11 @@
   }
   
   .nav-brand {
-    display: block !important; /* Show brand text on mobile instead of profile */
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-primary);
+    display: none !important; /* Hide brand text on mobile */
   }
   
   .nav-profile {
-    display: none !important; /* Hide profile completely on mobile */
+    display: flex !important; /* Show profile on mobile instead of brand text */
   }
   
   .nav-profile-image {
@@ -66,7 +63,16 @@
   }
   
   .nav-profile-info {
-    display: none;
+    display: flex !important; /* Show profile info on mobile */
+  }
+  
+  /* Hide the main header profile section on mobile */
+  .section-header .profile-info {
+    display: none !important;
+  }
+  
+  .section-header .contact-links {
+    display: none !important;
   }
   
   .nav-menu {
@@ -103,14 +109,6 @@
     color: var(--text-primary);
   }
   
-  /* Hide mobile menu elements */
-  .mobile-menu-toggle {
-    display: none;
-  }
-  
-  .mobile-menu {
-    display: none;
-  }
   
   .nav-right {
     display: flex;
@@ -120,7 +118,7 @@
   }
   
   .nav-social-links {
-    display: flex;
+    display: flex !important;
     gap: 0.25rem;
   }
   
@@ -488,10 +486,32 @@
 
 /* Tablet/Medium screens (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 768px) {
+  /* Navigation improvements - always show as "scrolled" state on mobile */
+  nav-header {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    /* Apply scrolled state styles by default on mobile */
+    background: var(--nav-bg-scrolled) !important;
+    border-bottom-color: var(--nav-border-scrolled) !important;
+  }
+  
+  .nav-brand {
+    display: none !important; /* Hide brand text on mobile */
+  }
+  
+  .nav-profile {
+    display: flex !important; /* Show profile on mobile instead of brand text */
+  }
+  
   .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  
+  .nav-container.scrolled .nav-social-links,
+  .nav-social-links {
+    display: flex !important;
   }
   
   /* Show all menu items on tablets */
@@ -505,8 +525,13 @@
     font-size: 0.95rem;
   }
   
-  .nav-brand {
-    font-size: 1.25rem;
+  /* Hide the main header profile section on tablets/mobile */
+  .section-header .profile-info {
+    display: none !important;
+  }
+  
+  .section-header .contact-links {
+    display: none !important;
   }
 }
 
