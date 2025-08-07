@@ -1,6 +1,57 @@
 /* Component Styles */
 
-/* Navigation Header */
+/* Site Header - Main navigation component */
+site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  transition: all var(--transition-normal);
+  --profile-width: 200px;
+}
+
+/* Scrolled state for site-header */
+site-header.scrolled {
+  background: var(--nav-bg-scrolled);
+  border-bottom-color: var(--nav-border-scrolled);
+}
+
+/* Profile Card Component - Compact version in header */
+profile-card[compact="true"] {
+  display: none;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 300ms ease;
+}
+
+/* Profile visibility state */
+site-header.profile-visible profile-card[compact="true"] {
+  display: flex !important;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+site-header:not(.profile-visible) profile-card[compact="true"] {
+  display: none !important;
+  opacity: 0 !important;
+  transform: translateX(-20px) !important;
+}
+
+/* Social Contacts Dynamic Positioning */
+social-contacts[position="dynamic"] {
+  transition: transform 300ms ease;
+}
+
+site-header.profile-visible social-contacts[position="dynamic"] {
+  transform: translateX(200px) !important;
+}
+
+/* Navigation Header (legacy support) */
 nav-header {
   position: fixed;
   top: 0;
@@ -46,10 +97,19 @@ nav-header.scrolled {
 
 
 .nav-profile {
-  display: none;
+  display: flex;
   align-items: center;
   gap: var(--space-sm);
   transition: all var(--transition-normal);
+  opacity: 0;
+  transform: translateX(-20px);
+  min-width: 180px;
+}
+
+/* Show profile when parent has profile-visible class */
+site-header.profile-visible .nav-profile {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .nav-container.scrolled .nav-profile {
@@ -1120,5 +1180,138 @@ education-section {
   
   .contact-text {
     display: none;
+  }
+}
+
+/* ========================================
+   WEB COMPONENTS RESPONSIVE DESIGN
+======================================== */
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .experience-skills-wrapper {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  technical-skills {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+    order: -1;
+  }
+  
+  project-showcase {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Additional mobile responsive adjustments for web components */
+@media (max-width: 768px) {
+  /* Profile adjustments */
+  profile-card[main="true"] {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-lg);
+  }
+  
+  social-contacts[position="main"] {
+    justify-content: center;
+  }
+  
+  /* Component spacing */
+  professional-summary,
+  projects-section,
+  hobbies-section {
+    padding: var(--space-xl) var(--space-sm);
+  }
+  
+  /* Experience cards */
+  experience-card {
+    padding: var(--space-md);
+  }
+  
+  /* Project cards */
+  project-showcase {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Contact links */
+  contact-link .contact-text {
+    display: none;
+  }
+  
+  /* Button adjustments */
+  download-button {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--text-xs);
+    height: 2rem;
+  }
+  
+  /* Component padding */
+  experience-card,
+  project-card,
+  hobby-card {
+    padding: var(--space-sm);
+  }
+}
+
+/* ========================================
+   PRINT STYLES FOR WEB COMPONENTS
+======================================== */
+
+@media print {
+  /* Hide web-only components */
+  site-header,
+  action-buttons,
+  theme-toggle,
+  download-button {
+    display: none !important;
+  }
+  
+  /* Ensure web components print properly */
+  profile-card,
+  professional-summary,
+  technical-skills,
+  experience-section,
+  experience-card,
+  projects-section,
+  project-card,
+  education-section,
+  hobbies-section {
+    display: block !important;
+    background: white !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Profile card print layout */
+  profile-card[main="true"] {
+    text-align: center !important;
+    flex-direction: column !important;
+  }
+  
+  /* Skills in print */
+  technical-skills {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  
+  /* Experience cards in print */
+  experience-card {
+    page-break-inside: avoid !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  /* Expand all details in print */
+  job-details,
+  summary-detail {
+    display: block !important;
+    opacity: 1 !important;
+    max-height: none !important;
   }
 }

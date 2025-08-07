@@ -12,9 +12,6 @@ class ExperienceSection extends BaseComponent {
     const experienceCards = this.$$('experience-card');
     
     experienceCards.forEach((card, index) => {
-      // Set up individual card interactions
-      card.setupInteractions();
-      
       // Stagger animations
       card.style.setProperty('--animation-delay', `${index * 150}ms`);
     });

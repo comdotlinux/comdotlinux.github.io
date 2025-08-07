@@ -27,9 +27,8 @@
     <link rel="preload" href="assets/images/profile.jpg" as="image">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="stylesheet" href="assets/styles/themes.css">
-    <link rel="stylesheet" href="assets/styles/components.css">
+    <link rel="stylesheet" href="assets/styles/working-resume.css">
     <link rel="stylesheet" href="assets/styles/print.css" media="print">
     
     <!-- Favicon -->
@@ -55,415 +54,411 @@
     <!-- Resume Application -->
     <resume-app id="main-content">
         
-        <!-- Navigation Header -->
-        <nav-header role="navigation" aria-label="Main navigation">
-            <div class="nav-container">
-                <div class="nav-left">
-                    <div class="nav-brand">
-                        <span class="brand-text">Guruprasad Kulkarni</span>
-                    </div>
-                    
-                    <div class="nav-profile">
-                        <img src="assets/images/profile.jpg" alt="Guruprasad Kulkarni" class="nav-profile-image">
-                        <div class="nav-profile-info">
-                            <span class="nav-profile-name">Guruprasad Kulkarni</span>
-                            <span class="nav-profile-title">Senior Java Developer</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <ul class="nav-menu" role="menubar">
-                    <li role="none">
-                        <a href="#home" role="menuitem" class="nav-link" aria-label="Go to home section">Home</a>
-                    </li>
-                    <li role="none">
-                        <a href="https://blog.kulkarni.cloud" role="menuitem" class="nav-link external" 
-                           target="_blank" rel="noopener" aria-label="Visit blog (opens in new tab)">
-                            Blog
-                            <span class="external-icon" aria-hidden="true">↗</span>
-                        </a>
-                    </li>
-                    <li role="none">
-                        <a href="#meetups" role="menuitem" class="nav-link" aria-label="Go to meetups section">Meetups</a>
-                    </li>
-                    <li role="none">
-                        <a href="#projects" role="menuitem" class="nav-link" aria-label="Go to projects section">Personal Projects</a>
-                    </li>
-                </ul>
-                
-                <div class="nav-right">
-                    <div class="nav-social-links">
-                        <a href="https://github.com/comdotlinux" class="nav-social-link" target="_blank" rel="noopener" aria-label="GitHub">🐙</a>
-                        <a href="https://www.linkedin.com/in/comdotlinux/" class="nav-social-link" target="_blank" rel="noopener" aria-label="LinkedIn">💼</a>
-                        <a href="https://mastodon.social/@comdotlinux" class="nav-social-link" target="_blank" rel="noopener" aria-label="Mastodon">🐘</a>
-                    </div>
-                    <button id="download-pdf" class="pdf-button" aria-label="Download resume as PDF">
-                        <span>📄</span> Download
-                    </button>
-                    <theme-switcher aria-label="Toggle dark/light theme"></theme-switcher>
-                </div>
-            </div>
-        </nav-header>
+        <!-- Sticky Header with Dynamic Profile -->
+        <site-header sticky="true" blur="true" role="navigation" aria-label="Main navigation">
+            <profile-card 
+                compact="true" 
+                hidden-initial="true" 
+                name="Guruprasad Kulkarni"
+                title="Senior Java Developer"
+                photo="assets/images/profile.jpg">
+            </profile-card>
+            
+            <nav-links>
+                <nav-link href="#home" smooth-scroll="true">Home</nav-link>
+                <nav-link href="https://blog.kulkarni.cloud" external="true">Blog</nav-link>
+                <nav-link href="#meetups" smooth-scroll="true">Meetups</nav-link>
+                <nav-link href="#projects" smooth-scroll="true">Personal Projects</nav-link>
+            </nav-links>
+            
+            <social-contacts position="dynamic">
+                <contact-link icon="linkedin" href="https://www.linkedin.com/in/comdotlinux/" type="linkedin" aria-label="LinkedIn profile">LinkedIn</contact-link>
+                <contact-link icon="github" href="https://github.com/comdotlinux" type="github" aria-label="GitHub profile">GitHub</contact-link>
+                <contact-link icon="email" href="mailto:guruprasad.kulkarni@example.com" type="email" aria-label="Email contact">Email</contact-link>
+                <contact-link icon="mastodon" href="https://mastodon.social/@comdotlinux" type="mastodon" aria-label="Mastodon profile">Mastodon</contact-link>
+                <contact-link icon="stackoverflow" href="https://stackoverflow.com/users/3331412/comdotlinux" type="stackoverflow" aria-label="Stack Overflow profile">Stack Overflow</contact-link>
+            </social-contacts>
+            
+            <action-buttons>
+                <theme-toggle mode="system" aria-label="Toggle dark/light theme"></theme-toggle>
+                <download-button type="pdf" filename="Guruprasad_Kulkarni_Resume.pdf">Download PDF</download-button>
+            </action-buttons>
+        </site-header>
         
         <!-- Main Content -->
         <main class="main-content">
             
-            <!-- Header Section -->
-            <section id="home" class="section-header" aria-labelledby="header-title">
-                <resume-header>
-                    <div class="header-content">
-                        <div class="profile-info">
-                            <img src="assets/images/profile.jpg" alt="Guruprasad Kulkarni" class="profile-image" width="120" height="120">
-                            <div class="profile-text">
-                                <h1 id="header-title" class="name">Guruprasad Kulkarni</h1>
-                                <p class="title">Senior Java Developer</p>
-                                <p class="location">München, Germany</p>
-                                <p class="tagline">Java / Kotlin / Dart / Javascript</p>
-                            </div>
-                        </div>
-                        
-                        <contact-bar>
-                            <div class="contact-links">
-                                <a href="mailto:guruprasad.kulkarni@example.com" class="contact-link" aria-label="Send email">
-                                    <span class="contact-icon">📧</span>
-                                    <span class="contact-text">Email</span>
-                                </a>
-                                <a href="https://github.com/comdotlinux" class="contact-link" target="_blank" rel="noopener" aria-label="GitHub profile">
-                                    <span class="contact-icon">🐙</span>
-                                    <span class="contact-text">GitHub</span>
-                                </a>
-                                <a href="https://www.linkedin.com/in/comdotlinux/" class="contact-link" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-                                    <span class="contact-icon">💼</span>
-                                    <span class="contact-text">LinkedIn</span>
-                                </a>
-                                <a href="https://mastodon.social/@comdotlinux" class="contact-link" target="_blank" rel="noopener" aria-label="Mastodon profile">
-                                    <span class="contact-icon">🐘</span>
-                                    <span class="contact-text">Mastodon</span>
-                                </a>
-                                <a href="https://stackoverflow.com/users/3331412/comdotlinux" class="contact-link" target="_blank" rel="noopener" aria-label="Stack Overflow profile">
-                                    <span class="contact-icon">💬</span>
-                                    <span class="contact-text">Stack Overflow</span>
-                                </a>
-                            </div>
-                        </contact-bar>
-                    </div>
-                </resume-header>
-            </section>
+            <!-- Main Profile Section -->
+            <profile-section id="home" aria-labelledby="header-title">
+                <profile-card 
+                    name="Guruprasad Kulkarni"
+                    title="Senior Java Developer"
+                    location="München, Germany"
+                    tagline="Java / Kotlin / Dart / Javascript"
+                    photo="assets/images/profile.jpg"
+                    main="true">
+                    <h1 id="header-title" slot="name" class="sr-only">Guruprasad Kulkarni</h1>
+                </profile-card>
+            </profile-section>
             
             <!-- Professional Summary -->
-            <section id="summary" class="section-summary" aria-labelledby="summary-title">
-                <professional-summary>
-                    <h2 id="summary-title" class="section-title">Professional Summary</h2>
-                    <div class="summary-content">
-                        <p class="summary-paragraph summary-intro">
-                            <strong>12 years Programming, 2 Years functional Testing</strong> and a bit of Non Functional Testing. Believe in Open Source Software, Linux and Of Course Java! Science and Technology Enthusiast.
-                        </p>
-                        <p class="summary-paragraph">
-                            Developer by profession who loves Java but is interested in other technologies. I prefer standards-based approaches and advocate for Jakarta EE with Eclipse Microprofile. I'm particularly passionate about Web Components and modern web standards.
-                        </p>
-                        <p class="summary-paragraph">
-                            My experience spans from traditional enterprise applications to modern cloud-native microservices, with a strong focus on clean code, testing, and maintainable architectures.
-                        </p>
-                    </div>
-                </professional-summary>
-            </section>
+            <professional-summary expandable="true" aria-labelledby="summary-title">
+                <h2 id="summary-title" class="section-title">Professional Summary</h2>
+                
+                <summary-brief slot="brief">
+                    <summary-line><strong>18 years of total experience in Software Development</strong></summary-line>
+                    <summary-line><strong>Java / Kotlin / Dart / Javascript</strong></summary-line>
+                    <summary-line>Believe in Open Source Software, Linux and Of Course Java! Science and Technology Enthusiast.</summary-line>
+                </summary-brief>
+                
+                <summary-detail slot="detail">
+                    <p>Developer by profession who loves Java but is interested in other technologies. I prefer standards-based approaches and advocate for Jakarta EE with Eclipse Microprofile. I'm particularly passionate about Web Components and modern web standards.</p>
+                    <p>My experience spans from traditional enterprise applications to modern cloud-native microservices, with a strong focus on clean code, testing, and maintainable architectures.</p>
+                    <p>Currently leading a team of 4 senior backend engineers at SafeNow GmbH, designing scalable backend systems with modern Java/Kotlin stack and cloud-native technologies.</p>
+                </summary-detail>
+            </professional-summary>
             
             
             <!-- Experience and Skills Combined Layout -->
             <div class="experience-skills-wrapper">
-                <!-- Experience Section -->
-                <section id="experience" class="section-experience" aria-labelledby="experience-title">
-                <experience-section>
+                <!-- Professional Experience -->
+                <experience-section id="experience" aria-labelledby="experience-title">
                     <h2 id="experience-title" class="section-title">Professional Experience</h2>
                     
-                    <!-- Current Job - Prominent -->
-                    <div class="current-job">
-                        <div class="job-header">
-                            <h3 class="job-title">Senior Developer</h3>
-                            <div class="job-meta">
-                                <span class="company">SafeNow GmbH</span>
-                                <span class="duration">June 2020 - Present</span>
-                                <span class="location">München, Germany</span>
-                            </div>
-                        </div>
-                        <div class="job-summary">
-                            <p>Leading backend architecture and microservice development for safety-focused platform.</p>
-                            <ul class="achievements">
-                                <li>Designed and implemented backend architecture with microservice communication patterns</li>
-                                <li>Set up complete AWS infrastructure using Terraform (EKS, RDS, CloudFront, S3, App Runner)</li>
-                                <li>Built CI/CD pipelines with GitHub Actions and Codefresh for automated deployments</li>
-                                <li>Integrated monitoring solutions with Prometheus, Grafana, and Loki for comprehensive observability</li>
-                                <li>Implemented secure secret management using AWS Secrets Manager</li>
-                            </ul>
-                            <div class="tech-stack">
-                                <strong>Technologies:</strong> Java 17, Kotlin, Spring, Hasura GraphQL, PostgreSQL, Flutter/Dart, AWS, Terraform
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Current Leadership Role -->
+                    <experience-card 
+                        company="SafeNow GmbH"
+                        position="Backend Team Lead"
+                        period="Jan 2025 - Present"
+                        location="München, Germany"
+                        current="true"
+                        expandable="true">
+                        
+                        <job-highlights slot="highlights">
+                            <highlight>Leading a team of 4 senior backend engineers</highlight>
+                            <highlight>Designed and implemented currently running SafeNow Backend Architecture</highlight>
+                            <highlight>Full-stack backend ownership: infrastructure to database design</highlight>
+                            <highlight>Performance optimization and load testing with Grafana K6</highlight>
+                            <highlight>Experience with AI coding assistants: GitHub Copilot, JetBrains AI, Claude Code</highlight>
+                        </job-highlights>
+                        
+                        <job-details slot="details">
+                            <detail>Involved in every aspect of backend including infrastructure setup, database design, REST endpoints, authentication, and authorization</detail>
+                            <detail>Performance optimizations and creating/running load tests using Grafana K6</detail>
+                            <detail>Integrations with Twilio Verify, SendGrid email, Firebase Messaging</detail>
+                            <detail>Implemented metrics, CDC with Debezium and Kafka</detail>
+                            <detail>External event sending using enterprise integration patterns with Apache Camel</detail>
+                            <detail>Maintaining low-code backend customer support tool using Retool</detail>
+                            <detail>Leveraging AI coding assistants: GitHub Copilot, JetBrains AI, Claude Code</detail>
+                        </job-details>
+                    </experience-card>
                     
-                    <!-- Previous Jobs - Grid -->
+                    <experience-card 
+                        company="SafeNow GmbH"
+                        position="Senior Developer"
+                        period="June 2020 - Dec 2024"
+                        location="München, Germany"
+                        expandable="true">
+                        
+                        <job-highlights slot="highlights">
+                            <highlight>Backend architecture and microservice communication</highlight>
+                            <highlight>AWS infrastructure with Terraform (EKS, App Runner, Aurora V2)</highlight>
+                            <highlight>Java 17, Kotlin, Spring, Hasura GraphQL, PostgreSQL</highlight>
+                            <highlight>Monitoring with Grafana and Prometheus</highlight>
+                        </job-highlights>
+                        
+                        <job-details slot="details">
+                            <detail>Designed and implemented backend architecture with microservice communication patterns</detail>
+                            <detail>Set up complete AWS infrastructure using Terraform (EKS, App Runner, Aurora V2, CloudFront, S3)</detail>
+                            <detail>Built CI/CD pipelines with GitHub Actions and Codefresh for automated deployments</detail>
+                            <detail>Integrated monitoring solutions with Prometheus, Grafana, and Loki for comprehensive observability</detail>
+                            <detail>Implemented secure secret management using AWS Secrets Manager</detail>
+                        </job-details>
+                    </experience-card>
+                    
+                    <!-- Previous Experience Grid -->
                     <div class="previous-jobs">
                         <h3 class="subsection-title">Previous Experience</h3>
                         <div class="jobs-grid">
                             
-                            <experience-card class="experience-item">
-                                <div class="job-header">
-                                    <h4 class="job-title">Tech Lead / Senior Java Developer</h4>
-                                    <div class="job-meta">
-                                        <span class="company">IDnow GmbH</span>
-                                        <span class="duration">Sept 2017 - June 2020</span>
-                                        <span class="location">München, Germany</span>
-                                    </div>
-                                </div>
-                                <div class="job-summary">
-                                    <p>Led development of identity verification platform and mentored development teams.</p>
-                                </div>
-                                <div class="experience-details">
-                                    <div class="details-achievements">
-                                        <h4>Key Achievements</h4>
-                                        <ul>
-                                            <li>Tech Lead for Autoident Product Team (Jan 2019 - June 2020)</li>
-                                            <li>Senior Java Developer role (Sept 2017 - Dec 2018)</li>
-                                            <li>Developed scalable identity verification solutions</li>
-                                            <li>Mentored junior developers and established coding standards</li>
-                                            <li>Collaborated with product teams on feature development and technical strategy</li>
-                                        </ul>
-                                    </div>
-                                    <div class="details-tech">
-                                        <strong>Technologies:</strong>
-                                        <span>Java, Spring Framework, Identity Verification APIs, Team Leadership</span>
-                                    </div>
-                                </div>
-                            </experience-card>
-                        
-                            
-                            <experience-card class="experience-item">
-                                <div class="job-header">
-                                    <h4 class="job-title">Team Lead / Senior Developer</h4>
-                                    <div class="job-meta">
-                                        <span class="company">Accenture</span>
-                                        <span class="duration">Jan 2017 - Sept 2017</span>
-                                        <span class="location">Frankfurt & Pune</span>
-                                    </div>
-                                </div>
-                                <div class="job-summary">
-                                    <p>Developed banking portal for Germany's second-largest bank with international team coordination.</p>
-                                </div>
-                                <div class="experience-details">
-                                    <div class="details-achievements">
-                                        <h4>Key Achievements</h4>
-                                        <ul>
-                                            <li>Led international development team across Frankfurt and Pune</li>
-                                            <li>Developed critical banking portal features</li>
-                                            <li>Coordinated with German banking regulations and compliance</li>
-                                        </ul>
-                                    </div>
-                                    <div class="details-tech">
-                                        <strong>Technologies:</strong>
-                                        <span>Java, Banking Systems, International Team Coordination, Compliance</span>
-                                    </div>
-                                </div>
+                            <experience-card 
+                                company="IDnow GmbH"
+                                position="Tech Lead / Senior Java Developer"
+                                period="Sept 2017 - June 2020"
+                                location="München, Germany"
+                                expandable="true">
+                                
+                                <job-highlights slot="highlights">
+                                    <highlight>Identity verification platform development</highlight>
+                                    <highlight>Team leadership and technical direction</highlight>
+                                    <highlight>Tech Lead for Autoident Product Team</highlight>
+                                </job-highlights>
+                                
+                                <job-details slot="details">
+                                    <detail>Tech Lead for Autoident Product Team (Jan 2019 - June 2020)</detail>
+                                    <detail>Senior Java Developer role (Sept 2017 - Dec 2018)</detail>
+                                    <detail>Developed scalable identity verification solutions</detail>
+                                    <detail>Mentored junior developers and established coding standards</detail>
+                                    <detail>Collaborated with product teams on feature development and technical strategy</detail>
+                                </job-details>
                             </experience-card>
                             
-                            <experience-card class="experience-item">
-                                <div class="job-header">
-                                    <h4 class="job-title">Senior Software Engineer</h4>
-                                    <div class="job-meta">
-                                        <span class="company">Talentica Software</span>
-                                        <span class="duration">April 2014 - Aug 2014</span>
-                                        <span class="location">Pune</span>
-                                    </div>
-                                </div>
-                                <div class="job-summary">
-                                    <p>Software development for enterprise clients.</p>
-                                </div>
-                                <div class="experience-details">
-                                    <div class="details-achievements">
-                                        <h4>Key Achievements</h4>
-                                        <ul>
-                                            <li>Developed enterprise applications using Java</li>
-                                            <li>Worked with international clients</li>
-                                            <li>Contributed to software architecture decisions</li>
-                                        </ul>
-                                    </div>
-                                    <div class="details-tech">
-                                        <strong>Technologies:</strong>
-                                        <span>Java, Enterprise Applications, Client Consultation</span>
-                                    </div>
-                                </div>
+                            <experience-card 
+                                company="Accenture"
+                                position="Team Lead / Senior Developer"
+                                period="Jan 2017 - Sept 2017"
+                                location="Frankfurt & Pune"
+                                expandable="true">
+                                
+                                <job-highlights slot="highlights">
+                                    <highlight>Banking portal for major German bank</highlight>
+                                    <highlight>International team coordination</highlight>
+                                </job-highlights>
+                                
+                                <job-details slot="details">
+                                    <detail>Led international development team across Frankfurt and Pune</detail>
+                                    <detail>Developed critical banking portal features</detail>
+                                    <detail>Coordinated with German banking regulations and compliance</detail>
+                                </job-details>
                             </experience-card>
                             
-                            <experience-card class="experience-item">
-                                <div class="job-header">
-                                    <h4 class="job-title">Various Development Roles</h4>
-                                    <div class="job-meta">
-                                        <span class="company">Wipro Technologies</span>
-                                        <span class="duration">Nov 2007 - April 2014</span>
-                                        <span class="location">Pune, York (UK), Dublin (Ireland)</span>
-                                    </div>
-                                </div>
-                                <div class="job-summary">
-                                    <p>Insurance and financial systems development with international assignments.</p>
-                                </div>
-                                <div class="experience-details">
-                                    <div class="details-achievements">
-                                        <h4>Key Achievements</h4>
-                                        <ul>
-                                            <li>International assignments in UK and Ireland</li>
-                                            <li>Developed insurance and financial applications</li>
-                                            <li>Gained experience across multiple domains</li>
-                                            <li>Worked with diverse international teams</li>
-                                        </ul>
-                                    </div>
-                                    <div class="details-tech">
-                                        <strong>Technologies:</strong>
-                                        <span>Java, Insurance Systems, Financial Applications, International Projects</span>
-                                    </div>
-                                </div>
+                            <experience-card 
+                                company="Talentica Software"
+                                position="Senior Software Engineer"
+                                period="April 2014 - Aug 2014"
+                                location="Pune, India"
+                                expandable="true">
+                                
+                                <job-highlights slot="highlights">
+                                    <highlight>Enterprise applications development</highlight>
+                                    <highlight>International client work</highlight>
+                                </job-highlights>
+                                
+                                <job-details slot="details">
+                                    <detail>Developed enterprise applications using Java</detail>
+                                    <detail>Worked with international clients</detail>
+                                    <detail>Contributed to software architecture decisions</detail>
+                                </job-details>
+                            </experience-card>
+                            
+                            <experience-card 
+                                company="Wipro Technologies"
+                                position="Various Development Roles"
+                                period="Nov 2007 - April 2014"
+                                location="Multiple Locations"
+                                expandable="true">
+                                
+                                <job-highlights slot="highlights">
+                                    <highlight>Insurance and financial systems</highlight>
+                                    <highlight>International experience: UK, Ireland</highlight>
+                                </job-highlights>
+                                
+                                <job-details slot="details">
+                                    <detail>International assignments in UK and Ireland</detail>
+                                    <detail>Developed insurance and financial applications</detail>
+                                    <detail>Gained experience across multiple domains</detail>
+                                    <detail>Worked with diverse international teams</detail>
+                                </job-details>
                             </experience-card>
                             
                         </div>
                     </div>
                 </experience-section>
-            </section>
             
-            <!-- Skills Sidebar -->
-            <aside id="skills" class="section-skills" aria-labelledby="skills-title">
-                <skills-grid>
-                    <h2 id="skills-title" class="section-title">Technical Skills</h2>
-                    <div class="skills-container">
-                        <div class="skill-category">
-                            <h3 class="category-title">Backend Technologies</h3>
-                            <div class="skill-tags">
-                                <span class="skill-tag expert" data-years="12">Java</span>
-                                <span class="skill-tag expert" data-years="5">Kotlin</span>
-                                <span class="skill-tag expert" data-years="8">Spring Framework</span>
-                                <span class="skill-tag advanced" data-years="4">Jakarta EE</span>
-                                <span class="skill-tag advanced" data-years="3">Quarkus</span>
-                                <span class="skill-tag intermediate" data-years="2">Micronaut</span>
-                                <span class="skill-tag intermediate" data-years="2">Helidon</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3 class="category-title">Frontend & Mobile</h3>
-                            <div class="skill-tags">
-                                <span class="skill-tag advanced" data-years="6">JavaScript</span>
-                                <span class="skill-tag intermediate" data-years="3">Dart</span>
-                                <span class="skill-tag intermediate" data-years="3">Flutter</span>
-                                <span class="skill-tag advanced" data-years="5">Web Components</span>
-                                <span class="skill-tag advanced" data-years="8">HTML/CSS</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3 class="category-title">Cloud & DevOps</h3>
-                            <div class="skill-tags">
-                                <span class="skill-tag expert" data-years="4">AWS</span>
-                                <span class="skill-tag expert" data-years="4">Terraform</span>
-                                <span class="skill-tag expert" data-years="6">Docker</span>
-                                <span class="skill-tag advanced" data-years="3">Kubernetes</span>
-                                <span class="skill-tag advanced" data-years="3">Amazon EKS</span>
-                                <span class="skill-tag intermediate" data-years="2">TestContainers</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3 class="category-title">Tools & Platforms</h3>
-                            <div class="skill-tags">
-                                <span class="skill-tag expert" data-years="8">Gradle</span>
-                                <span class="skill-tag expert" data-years="5">GitHub Actions</span>
-                                <span class="skill-tag advanced" data-years="4">Hasura GraphQL</span>
-                                <span class="skill-tag advanced" data-years="3">Prometheus</span>
-                                <span class="skill-tag advanced" data-years="3">Grafana</span>
-                                <span class="skill-tag intermediate" data-years="2">Apollo GraphQL</span>
-                            </div>
-                        </div>
-                    </div>
-                </skills-grid>
+            <!-- Technical Skills Sidebar -->
+            <technical-skills id="skills" aria-labelledby="skills-title">
+                <h2 id="skills-title" class="section-title">Technical Skills</h2>
                 
-                <!-- Education in Sidebar -->
-                <div id="education" class="section-education" aria-labelledby="education-title">
-                    <education-section>
-                        <div class="education-container">
-                            <div class="education-category">
-                                <h4 id="education-title" class="category-title">Education</h4>
-                                <div class="education-tags">
-                                    <a href="https://www.vit.edu/" target="_blank" rel="noopener" class="education-tag">Bachelor of Production Engineering - V.I.T, Pune, Maharashtra</a>
-                                    <a href="https://sinhgad.edu/" target="_blank" rel="noopener" class="education-tag">Diploma in Mechanical Engineering - S.I.T, Pune, Maharashtra</a>
-                                </div>
-                            </div>
-                        </div>
-                    </education-section>
-                </div>
-            </aside>
+                <skills-category title="Backend Technologies">
+                    <skill-tag experience="18 Years" level="expert">Java</skill-tag>
+                    <skill-tag experience="6 Years" level="expert">Kotlin</skill-tag>
+                    <skill-tag experience="10 Years" level="expert">Spring Framework</skill-tag>
+                    <skill-tag experience="5 Years" level="advanced">Jakarta EE</skill-tag>
+                    <skill-tag experience="3 Years" level="advanced">Quarkus</skill-tag>
+                    <skill-tag experience="2 Years" level="intermediate">Micronaut</skill-tag>
+                    <skill-tag experience="2 Years" level="intermediate">Helidon</skill-tag>
+                </skills-category>
+                
+                <skills-category title="Frontend & Mobile">
+                    <skill-tag experience="8 Years" level="advanced">JavaScript</skill-tag>
+                    <skill-tag experience="5 Years" level="intermediate">Dart</skill-tag>
+                    <skill-tag experience="5 Years" level="intermediate">Flutter</skill-tag>
+                    <skill-tag experience="4 Years" level="advanced">Web Components</skill-tag>
+                    <skill-tag experience="10 Years" level="advanced">HTML/CSS</skill-tag>
+                </skills-category>
+                
+                <skills-category title="Cloud & DevOps">
+                    <skill-tag experience="6 Years" level="expert">AWS (EKS, App Runner, Aurora V2)</skill-tag>
+                    <skill-tag experience="5 Years" level="expert">Terraform</skill-tag>
+                    <skill-tag experience="7 Years" level="expert">Docker</skill-tag>
+                    <skill-tag experience="5 Years" level="advanced">Kubernetes</skill-tag>
+                    <skill-tag experience="3 Years" level="intermediate">TestContainers</skill-tag>
+                </skills-category>
+                
+                <skills-category title="Tools & Monitoring">
+                    <skill-tag experience="8 Years" level="expert">Gradle</skill-tag>
+                    <skill-tag experience="4 Years" level="expert">GitHub Actions</skill-tag>
+                    <skill-tag experience="6 Years" level="expert">Grafana</skill-tag>
+                    <skill-tag experience="6 Years" level="expert">Prometheus</skill-tag>
+                    <skill-tag experience="4 Years" level="advanced">Hasura GraphQL</skill-tag>
+                    <skill-tag experience="2 Years" level="intermediate">Apollo GraphQL</skill-tag>
+                </skills-category>
+                
+                <skills-category title="AI Coding Assistants">
+                    <skill-tag level="advanced">GitHub Copilot</skill-tag>
+                    <skill-tag level="advanced">JetBrains AI</skill-tag>
+                    <skill-tag level="advanced">Claude Code</skill-tag>
+                </skills-category>
+                
+                <!-- Education -->
+                <education-section>
+                    <education-card 
+                        degree="Bachelor of Production Engineering"
+                        institution="V.I.T, Pune, Maharashtra"
+                        year="2007"
+                        link="https://www.vit.edu/">
+                    </education-card>
+                    
+                    <education-card 
+                        degree="Diploma in Mechanical Engineering"
+                        institution="S.I.T, Pune, Maharashtra"
+                        year="2004"
+                        link="https://sinhgad.edu/">
+                    </education-card>
+                </education-section>
+            </technical-skills>
             
             </div> <!-- End experience-skills-wrapper -->
             
-            <!-- Projects and Presentations -->
-            <section id="projects" class="section-projects" aria-labelledby="projects-title">
-                <projects-showcase>
-                    <h2 id="projects-title" class="section-title">Projects & Presentations</h2>
-                    
-                    <div class="projects-container">
-                        <div class="project-category">
-                            <h3 class="category-title">Conference Presentations</h3>
-                            <div class="project-grid">
-                                <div class="project-card presentation">
-                                    <h4 class="project-name">Quarkus Framework</h4>
-                                    <p class="project-description">Comprehensive presentation on Quarkus cloud-native development</p>
-                                    <div class="project-links">
-                                        <a href="#" class="project-link">View Slides</a>
-                                        <a href="#" class="project-link">Source Code</a>
-                                    </div>
-                                </div>
-                                <div class="project-card presentation">
-                                    <h4 class="project-name">Java 9 Features</h4>
-                                    <p class="project-description">Deep dive into Java 9 modules and new language features</p>
-                                    <div class="project-links">
-                                        <a href="#" class="project-link">View Slides</a>
-                                        <a href="#" class="project-link">Source Code</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-category">
-                            <h3 class="category-title" id="meetups">Open Source Projects</h3>
-                            <div class="project-grid">
-                                <div class="project-card">
-                                    <h4 class="project-name">Design Patterns</h4>
-                                    <p class="project-description">Java implementation of common design patterns with examples</p>
-                                    <div class="project-links">
-                                        <a href="https://github.com/comdotlinux/design-patterns" class="project-link" target="_blank" rel="noopener">GitHub</a>
-                                    </div>
-                                </div>
-                                <div class="project-card">
-                                    <h4 class="project-name">Java Exercises</h4>
-                                    <p class="project-description">Collection of Java programming exercises and solutions</p>
-                                    <div class="project-links">
-                                        <a href="https://github.com/comdotlinux/java-exercises" class="project-link" target="_blank" rel="noopener">GitHub</a>
-                                    </div>
-                                </div>
-                                <div class="project-card">
-                                    <h4 class="project-name">GitHub Release Tool</h4>
-                                    <p class="project-description">Utility for automating GitHub release management</p>
-                                    <div class="project-links">
-                                        <a href="https://github.com/comdotlinux/github-release-tool" class="project-link" target="_blank" rel="noopener">GitHub</a>
-                                    </div>
-                                </div>
-                                <div class="project-card">
-                                    <h4 class="project-name">Simple Java ETL</h4>
-                                    <p class="project-description">Lightweight ETL framework for Java SE applications</p>
-                                    <div class="project-links">
-                                        <a href="https://github.com/comdotlinux/simple-java-etl" class="project-link" target="_blank" rel="noopener">GitHub</a>
-                                    </div>
-                                </div>
-                            </div>
+            <!-- Projects & Presentations -->
+            <projects-section id="projects" aria-labelledby="projects-title">
+                <h2 id="projects-title" class="section-title">Projects & Presentations</h2>
+                
+                <project-showcase>
+                    <div class="project-category">
+                        <h3 class="category-title" id="meetups">Conference Presentations</h3>
+                        <div class="project-grid">
+                            <presentation-card
+                                title="Quarkus Framework"
+                                event="Munich Java User Group"
+                                date="2023"
+                                slides="#"
+                                source="#">
+                                <presentation-description slot="description">
+                                    Comprehensive presentation on Quarkus cloud-native development framework, covering reactive programming, native compilation, and developer experience improvements.
+                                </presentation-description>
+                            </presentation-card>
+                            
+                            <presentation-card
+                                title="Java 9 Features"
+                                event="Tech Meetup Munich"
+                                date="2022"
+                                slides="#"
+                                source="#">
+                                <presentation-description slot="description">
+                                    Deep dive into Java 9 modules and new language features, including the module system, JShell, and performance improvements.
+                                </presentation-description>
+                            </presentation-card>
                         </div>
                     </div>
-                </projects-showcase>
-            </section>
+                    
+                    <div class="project-category">
+                        <h3 class="category-title">Open Source Projects</h3>
+                        <div class="project-grid">
+                            <project-card 
+                                title="Design Patterns"
+                                type="opensource"
+                                github="https://github.com/comdotlinux/design-patterns">
+                                <project-description slot="description">
+                                    Java implementation of common design patterns with examples and practical use cases for enterprise development.
+                                </project-description>
+                                <project-tech slot="tech">
+                                    <tech-tag>Java</tech-tag>
+                                    <tech-tag>Design Patterns</tech-tag>
+                                    <tech-tag>OOP</tech-tag>
+                                </project-tech>
+                            </project-card>
+                            
+                            <project-card 
+                                title="Java Exercises"
+                                type="opensource"
+                                github="https://github.com/comdotlinux/java-exercises">
+                                <project-description slot="description">
+                                    Collection of Java programming exercises and solutions for learning and interview preparation.
+                                </project-description>
+                                <project-tech slot="tech">
+                                    <tech-tag>Java</tech-tag>
+                                    <tech-tag>Algorithms</tech-tag>
+                                    <tech-tag>Problem Solving</tech-tag>
+                                </project-tech>
+                            </project-card>
+                            
+                            <project-card 
+                                title="GitHub Release Tool"
+                                type="opensource"
+                                github="https://github.com/comdotlinux/github-release-tool">
+                                <project-description slot="description">
+                                    Utility for automating GitHub release management and changelog generation.
+                                </project-description>
+                                <project-tech slot="tech">
+                                    <tech-tag>Java</tech-tag>
+                                    <tech-tag>GitHub API</tech-tag>
+                                    <tech-tag>DevOps</tech-tag>
+                                </project-tech>
+                            </project-card>
+                            
+                            <project-card 
+                                title="Simple Java ETL"
+                                type="opensource"
+                                github="https://github.com/comdotlinux/simple-java-etl">
+                                <project-description slot="description">
+                                    Lightweight ETL framework for Java SE applications with configurable data transformation pipelines.
+                                </project-description>
+                                <project-tech slot="tech">
+                                    <tech-tag>Java</tech-tag>
+                                    <tech-tag>ETL</tech-tag>
+                                    <tech-tag>Data Processing</tech-tag>
+                                </project-tech>
+                            </project-card>
+                        </div>
+                    </div>
+                </project-showcase>
+            </projects-section>
+            
+            <!-- Hobbies & Home Lab -->
+            <hobbies-section aria-labelledby="hobbies-title">
+                <h2 id="hobbies-title" class="section-title">Hobbies & Home Lab</h2>
+                
+                <div class="hobby-grid">
+                    <hobby-card title="Home Lab & Self-Hosting">
+                    <lab-infrastructure slot="infrastructure">
+                        <infrastructure-item type="server">Self-hosted bare metal server (32 GB RAM, 12-core processor)</infrastructure-item>
+                        <infrastructure-item type="nas" link="https://radxa.com/products/accessories/penta-sata-hat/">Raspberry Pi 5 with Radxa Penta SATA HAT (4 SSDs RAID NAS)</infrastructure-item>
+                        <infrastructure-item type="cloud" link="https://www.hetzner.com/">Hetzner cloud server running Pangolin</infrastructure-item>
+                        <infrastructure-item type="network">Raspberry Pi 3 dedicated for AdGuard Home</infrastructure-item>
+                    </lab-infrastructure>
+                    
+                    <lab-services slot="services">
+                        <service-category title="Security & Access">
+                            <service-item link="https://github.com/fosrl/pangolin">Pangolin for Authentication/Authorization with Zero Trust Access</service-item>
+                            <service-item link="https://letsencrypt.org/">TLS termination with Let's Encrypt</service-item>
+                        </service-category>
+                        
+                        <service-category title="CI/CD & Automation">
+                            <service-item link="https://github.com/moghtech/komodo">Komodo for CI/CD using Docker Compose</service-item>
+                            <service-item link="https://n8n.io/">n8n automation server</service-item>
+                        </service-category>
+                        
+                        <service-category title="Self-Hosted Applications">
+                            <service-item link="https://immich.app/">Immich for photo storage</service-item>
+                            <service-item link="https://hub.docker.com/r/itzg/minecraft-server">Minecraft servers (itzg/minecraft-server:latest)</service-item>
+                            <service-item link="https://ollama.com/">Ollama with Open WebUI for local AI</service-item>
+                            <service-item link="https://github.com/AdguardTeam/AdGuardHome">AdGuard Home for network-wide ad blocking</service-item>
+                        </service-category>
+                    </lab-services>
+                    </hobby-card>
+                </div>
+            </hobbies-section>
             
             
         </main>
@@ -484,6 +479,11 @@
     <!-- Scripts -->
     <script src="assets/data/resume-data.js"></script>
     <script src="assets/scripts/components/base-component.js"></script>
+    <script src="assets/scripts/components/site-header.js"></script>
+    <script src="assets/scripts/components/profile-components.js"></script>
+    <script src="assets/scripts/components/navigation-components.js"></script>
+    <script src="assets/scripts/components/content-components.js"></script>
+    <script src="assets/scripts/components/projects-components.js"></script>
     <script src="assets/scripts/components/theme-switcher.js"></script>
     <script src="assets/scripts/components/resume-app.js"></script>
     <script src="assets/scripts/components/skills-components.js"></script>

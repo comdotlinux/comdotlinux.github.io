@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guruprasad Kulkarni - Resume (Print Version)</title>
+    
+    <!-- Stylesheets optimized for print -->
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/styles/themes.css">
+    <link rel="stylesheet" href="assets/styles/components.css">
+    <link rel="stylesheet" href="assets/styles/print.css">
+    
+    <style>
+        /* Print-specific inline styles for clean PDF generation */
+        body {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 15mm;
+            background: white !important;
+            color: #000 !important;
+            font-size: 11pt;
+            line-height: 1.4;
+        }
+        
+        /* Force light theme for print */
+        * {
+            color-scheme: light;
+            background: white !important;
+        }
+        
+        /* Hide interactive elements */
+        site-header,
+        theme-toggle,
+        download-button,
+        .expand-button,
+        .nav-container,
+        .pdf-button {
+            display: none !important;
+        }
+        
+        /* Expand all content by default */
+        .expandable-content,
+        summary + *,
+        [slot="details"] {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        /* Professional resume layout */
+        profile-section {
+            text-align: center;
+            border-bottom: 2px solid #4472C4;
+            padding-bottom: 15mm;
+            margin-bottom: 10mm;
+        }
+        
+        .profile-name {
+            font-size: 22pt;
+            font-weight: bold;
+            color: #4472C4;
+            margin-bottom: 3mm;
+        }
+        
+        .profile-title {
+            font-size: 14pt;
+            margin-bottom: 2mm;
+        }
+        
+        .section-title {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #4472C4;
+            margin-top: 8mm;
+            margin-bottom: 4mm;
+            border-bottom: 1px solid #4472C4;
+            padding-bottom: 1mm;
+        }
+        
+        experience-card,
+        project-card {
+            margin-bottom: 5mm;
+            page-break-inside: avoid;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            font-size: 11pt;
+        }
+        
+        .company {
+            font-weight: bold;
+            color: #4472C4;
+        }
+        
+        skill-tag {
+            display: inline;
+            margin-right: 5pt;
+            font-size: 10pt;
+        }
+        
+        skill-tag::after {
+            content: ", ";
+        }
+        
+        skill-tag:last-child::after {
+            content: "";
+        }
+    </style>
+    
+    <!-- Auto-trigger print dialog on load -->
+    <script>
+        window.addEventListener('load', () => {
+            // Small delay to ensure content is fully rendered
+            setTimeout(() => {
+                window.print();
+            }, 500);
+        });
+    </script>
+</head>
+<body>
+    <!-- Print-optimized resume content -->
+    <div class="print-container">
+        
+        <!-- Header -->
+        <profile-section class="print-header">
+            <h1 class="profile-name">Guruprasad Kulkarni</h1>
+            <div class="profile-title">Backend Team Lead - Senior Java Developer</div>
+            <div class="profile-location">München, Germany</div>
+            <div class="profile-contact">
+                Email: <span class="contact-email">guruprasad.kulkarni@example.com</span> | 
+                GitHub: github.com/comdotlinux | 
+                LinkedIn: linkedin.com/in/comdotlinux
+            </div>
+        </profile-section>
+        
+        <!-- Professional Summary -->
+        <section class="print-section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p><strong>18 years of total experience in Software Development</strong> with expertise in Java, Kotlin, and cloud-native technologies. Currently leading a team of 4 senior backend engineers at SafeNow GmbH, designing scalable backend systems with modern Java/Kotlin stack and AWS cloud infrastructure.</p>
+            <p>Developer by profession who loves Java but is interested in other technologies. I prefer standards-based approaches and advocate for Jakarta EE with Eclipse Microprofile. Passionate about Web Components, modern web standards, and clean architecture principles.</p>
+        </section>
+        
+        <!-- Technical Skills -->
+        <section class="print-section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-print">
+                <p><strong>Backend Technologies:</strong> Java (18 years), Kotlin (6 years), Spring Framework (10 years), Jakarta EE (5 years), Quarkus (3 years), Micronaut (2 years)</p>
+                <p><strong>Cloud & DevOps:</strong> AWS EKS/App Runner/Aurora V2 (6 years), Terraform (5 years), Docker (7 years), Kubernetes (5 years), GitHub Actions (4 years)</p>
+                <p><strong>Monitoring & Tools:</strong> Grafana (6 years), Prometheus (6 years), Gradle (8 years), Hasura GraphQL (4 years)</p>
+                <p><strong>Frontend & Mobile:</strong> JavaScript (8 years), Dart/Flutter (5 years), Web Components (4 years), HTML/CSS (10 years)</p>
+                <p><strong>AI Coding Assistants:</strong> GitHub Copilot, JetBrains AI, Claude Code</p>
+            </div>
+        </section>
+        
+        <!-- Professional Experience -->
+        <section class="print-section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <!-- Current Role -->
+            <div class="job-entry">
+                <div class="job-header">
+                    <div class="job-title">Backend Team Lead</div>
+                    <div class="job-meta">
+                        <span class="company">SafeNow GmbH</span> | Jan 2025 - Present | München, Germany
+                    </div>
+                </div>
+                <ul class="job-achievements">
+                    <li>Leading a team of 4 senior backend engineers</li>
+                    <li>Designed and implemented currently running SafeNow Backend Architecture</li>
+                    <li>Involved in every aspect of backend: infrastructure setup, database design, REST endpoints, authentication, and authorization</li>
+                    <li>Performance optimizations and load testing using Grafana K6</li>
+                    <li>Integrations with Twilio Verify, SendGrid email, Firebase Messaging</li>
+                    <li>Implemented metrics, CDC with Debezium and Kafka</li>
+                    <li>Experience with AI coding assistants: GitHub Copilot, JetBrains AI, Claude Code</li>
+                </ul>
+            </div>
+            
+            <!-- Previous Role -->
+            <div class="job-entry">
+                <div class="job-header">
+                    <div class="job-title">Senior Developer</div>
+                    <div class="job-meta">
+                        <span class="company">SafeNow GmbH</span> | June 2020 - Dec 2024 | München, Germany
+                    </div>
+                </div>
+                <ul class="job-achievements">
+                    <li>Backend architecture and microservice communication patterns</li>
+                    <li>AWS infrastructure setup using Terraform (EKS, App Runner, Aurora V2, CloudFront, S3)</li>
+                    <li>CI/CD pipelines with GitHub Actions and Codefresh</li>
+                    <li>Monitoring solutions with Prometheus, Grafana, and Loki</li>
+                    <li>Technologies: Java 17, Kotlin, Spring, Hasura GraphQL, PostgreSQL</li>
+                </ul>
+            </div>
+            
+            <!-- IDnow -->
+            <div class="job-entry">
+                <div class="job-header">
+                    <div class="job-title">Tech Lead / Senior Java Developer</div>
+                    <div class="job-meta">
+                        <span class="company">IDnow GmbH</span> | Sept 2017 - June 2020 | München, Germany
+                    </div>
+                </div>
+                <ul class="job-achievements">
+                    <li>Tech Lead for Autoident Product Team (Jan 2019 - June 2020)</li>
+                    <li>Developed scalable identity verification solutions</li>
+                    <li>Mentored junior developers and established coding standards</li>
+                </ul>
+            </div>
+            
+            <!-- Accenture -->
+            <div class="job-entry">
+                <div class="job-header">
+                    <div class="job-title">Team Lead / Senior Developer</div>
+                    <div class="job-meta">
+                        <span class="company">Accenture</span> | Jan 2017 - Sept 2017 | Frankfurt & Pune
+                    </div>
+                </div>
+                <ul class="job-achievements">
+                    <li>Banking portal development for Germany's second-largest bank</li>
+                    <li>International team coordination across Frankfurt and Pune</li>
+                </ul>
+            </div>
+            
+            <!-- Earlier Experience -->
+            <div class="job-entry">
+                <div class="job-header">
+                    <div class="job-title">Senior Software Engineer & Various Roles</div>
+                    <div class="job-meta">
+                        <span class="company">Talentica Software & Wipro Technologies</span> | Nov 2007 - Aug 2014 | Multiple Locations
+                    </div>
+                </div>
+                <ul class="job-achievements">
+                    <li>Enterprise applications development and international client work</li>
+                    <li>Insurance and financial systems development</li>
+                    <li>International assignments in UK and Ireland</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Projects -->
+        <section class="print-section">
+            <h2 class="section-title">Open Source Projects & Presentations</h2>
+            <div class="project-list">
+                <p><strong>Conference Presentations:</strong> Quarkus Framework (Munich Java User Group, 2023), Java 9 Features (Tech Meetup Munich, 2022)</p>
+                <p><strong>GitHub Projects:</strong> Design Patterns (Java implementations), Java Exercises (coding practice), GitHub Release Tool (automation utility), Simple Java ETL (data processing framework)</p>
+            </div>
+        </section>
+        
+        <!-- Education -->
+        <section class="print-section">
+            <h2 class="section-title">Education</h2>
+            <p><strong>Bachelor of Production Engineering</strong> - V.I.T, Pune, Maharashtra (2007)</p>
+            <p><strong>Diploma in Mechanical Engineering</strong> - S.I.T, Pune, Maharashtra (2004)</p>
+        </section>
+        
+        <!-- Home Lab -->
+        <section class="print-section">
+            <h2 class="section-title">Technical Interests & Home Lab</h2>
+            <p><strong>Infrastructure:</strong> Self-hosted bare metal server (32 GB RAM, 12-core), Raspberry Pi 5 with Radxa Penta SATA HAT (4 SSDs RAID NAS), Hetzner cloud server</p>
+            <p><strong>Self-Hosted Services:</strong> Pangolin (Zero Trust Access), Komodo (CI/CD), Immich (photo storage), n8n (automation), Ollama with Open WebUI (local AI), AdGuard Home (network-wide ad blocking)</p>
+        </section>
+        
+    </div>
+    
+    <!-- Load resume data for dynamic content -->
+    <script src="assets/data/resume-data.js"></script>
+    
+    <script>
+        // Populate dynamic content from resume data
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update email from resume data if available
+            if (window.RESUME_DATA && RESUME_DATA.contacts) {
+                const emailContact = RESUME_DATA.contacts.find(contact => contact.type === 'email');
+                if (emailContact) {
+                    const emailElements = document.querySelectorAll('.contact-email');
+                    emailElements.forEach(el => {
+                        el.textContent = emailContact.url.replace('mailto:', '');
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

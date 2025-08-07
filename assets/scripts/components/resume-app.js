@@ -299,39 +299,7 @@ class ContactBar extends BaseComponent {
   }
 }
 
-// Professional Summary Component
-class ProfessionalSummary extends BaseComponent {
-  connectedCallback() {
-    super.connectedCallback();
-    this.setupExpandableContent();
-  }
-  
-  setupExpandableContent() {
-    const details = this.$('details');
-    if (details) {
-      details.addEventListener('toggle', this.handleToggle.bind(this));
-    }
-  }
-  
-  handleToggle(event) {
-    const isOpen = event.target.open;
-    const summary = event.target.querySelector('summary');
-    
-    if (summary) {
-      summary.setAttribute('aria-expanded', isOpen);
-    }
-    
-    // Smooth height animation would go here
-    // Browser handles this natively for details/summary
-  }
-  
-  needsIntersectionObserver() {
-    return true;
-  }
-}
-
 // Register all components
 customElements.define('resume-app', ResumeApp);
 customElements.define('nav-header', NavHeader);
 customElements.define('contact-bar', ContactBar);
-customElements.define('professional-summary', ProfessionalSummary);

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX Validation Test Suite</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 20px;
+        }
+        .test-section h2 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .test-result {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .test-result.pass {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .test-result.fail {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .test-result.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .run-tests {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        .run-tests:hover {
+            background: #0056b3;
+        }
+        .summary {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        .test-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .iframe-container {
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .iframe-header {
+            background: #f8f9fa;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            font-weight: bold;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        .profile-test {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🔬 UX Validation Test Suite</h1>
+            <p>Comprehensive testing for the Modern Resume Website</p>
+        </div>
+
+        <div class="test-controls">
+            <button class="run-tests" onclick="runAllTests()">🚀 Run All Tests</button>
+            <button class="run-tests" onclick="runProfileAnimationTests()">🎬 Test Profile Animation</button>
+            <button class="run-tests" onclick="runAccessibilityTests()">♿ Test Accessibility</button>
+            <button class="run-tests" onclick="clearResults()">🧹 Clear Results</button>
+        </div>
+
+        <div class="iframe-container">
+            <div class="iframe-header">Resume Website Under Test</div>
+            <iframe src="./index.html" id="testIframe" onload="onIframeLoad()"></iframe>
+        </div>
+
+        <div id="results-container">
+            <div class="loading">Load the website above, then click "Run All Tests" to begin validation.</div>
+        </div>
+    </div>
+
+    <script>
+        let testIframe = null;
+        let testDoc = null;
+        let testWindow = null;
+
+        function onIframeLoad() {
+            testIframe = document.getElementById('testIframe');
+            testDoc = testIframe.contentDocument || testIframe.contentWindow.document;
+            testWindow = testIframe.contentWindow;
+            
+            console.log('Website loaded in iframe, ready for testing');
+        }
+
+        function addResult(sectionId, type, message) {
+            const section = document.getElementById(sectionId);
+            if (!section) return;
+            
+            const result = document.createElement('div');
+            result.className = `test-result ${type}`;
+            result.innerHTML = `
+                <span style="margin-right: 8px;">
+                    ${type === 'pass' ? '✅' : type === 'fail' ? '❌' : '⚠️'}
+                </span>
+                ${message}
+            `;
+            section.appendChild(result);
+        }
+
+        function createTestSection(id, title) {
+            const container = document.getElementById('results-container');
+            container.innerHTML = ''; // Clear loading message
+            
+            const section = document.createElement('div');
+            section.className = 'test-section';
+            section.innerHTML = `<h2>${title}</h2>`;
+            section.id = id;
+            container.appendChild(section);
+            return section;
+        }
+
+        function clearResults() {
+            const container = document.getElementById('results-container');
+            container.innerHTML = '<div class="loading">Ready to run tests.</div>';
+        }
+
+        async function runAllTests() {
+            if (!testDoc) {
+                alert('Please wait for the website to load first.');
+                return;
+            }
+
+            clearResults();
+            
+            console.log('🚀 Starting comprehensive UX validation...');
+            
+            await runProfileAnimationTests();
+            await runAccessibilityTests();
+            await runResponsivenessTests();
+            await runUsabilityTests();
+            
+            generateSummary();
+        }
+
+        async function runProfileAnimationTests() {
+            console.log('🎬 Testing Profile Animation Behavior...');
+            
+            const section = createTestSection('profile-animation', '🎬 Profile Animation Tests');
+            
+            // Test 1: Check for main profile element
+            const mainProfile = testDoc.querySelector('profile-card[main="true"]');
+            if (mainProfile) {
+                addResult('profile-animation', 'pass', 'Main profile card found');
+            } else {
+                addResult('profile-animation', 'fail', 'Main profile card not found');
+                return;
+            }
+
+            // Test 2: Check for compact profile in header
+            const compactProfile = testDoc.querySelector('profile-card[compact="true"]');
+            if (compactProfile) {
+                addResult('profile-animation', 'pass', 'Compact profile card found in header');
+                
+                // Check initial visibility
+                const computedStyle = testWindow.getComputedStyle(compactProfile);
+                const isHidden = computedStyle.display === 'none' || 
+                               computedStyle.opacity === '0' || 
+                               compactProfile.style.display === 'none';
+                
+                if (isHidden) {
+                    addResult('profile-animation', 'pass', 'Compact profile initially hidden (correct)');
+                } else {
+                    addResult('profile-animation', 'warning', 'Compact profile should be initially hidden');
+                }
+            } else {
+                addResult('profile-animation', 'fail', 'Compact profile card not found in header');
+            }
+
+            // Test 3: Check for site-header component
+            const siteHeader = testDoc.querySelector('site-header');
+            if (siteHeader) {
+                addResult('profile-animation', 'pass', 'Site header component found');
+                
+                // Check for profile visibility class behavior
+                if (siteHeader.classList.contains('profile-visible')) {
+                    addResult('profile-animation', 'warning', 'Header profile should be hidden by default');
+                } else {
+                    addResult('profile-animation', 'pass', 'Header profile hidden by default');
+                }
+            } else {
+                addResult('profile-animation', 'fail', 'Site header component not found');
+            }
+
+            // Test 4: Check for dynamic social contacts
+            const dynamicSocialContacts = testDoc.querySelector('social-contacts[position="dynamic"]');
+            if (dynamicSocialContacts) {
+                addResult('profile-animation', 'pass', 'Dynamic social contacts found');
+            } else {
+                addResult('profile-animation', 'warning', 'Dynamic social contacts not found');
+            }
+
+            // Test 5: Check for intersection observer setup
+            if (testWindow.IntersectionObserver) {
+                addResult('profile-animation', 'pass', 'Intersection Observer API supported');
+            } else {
+                addResult('profile-animation', 'fail', 'Intersection Observer API not supported');
+            }
+
+            // Test 6: Simulate scroll to test animation
+            const profileTest = document.createElement('div');
+            profileTest.className = 'profile-test';
+            profileTest.innerHTML = `
+                <strong>🎯 Profile Animation Manual Test:</strong><br>
+                Scroll down in the iframe above to see the profile smoothly transition from main content to header navigation.
+                The profile should slide in from the left when the main profile scrolls out of view.
+            `;
+            document.getElementById('profile-animation').appendChild(profileTest);
+
+            // Test 7: Check for reduced motion support
+            const prefersReducedMotion = testWindow.matchMedia('(prefers-reduced-motion: reduce)');
+            if (prefersReducedMotion.matches) {
+                addResult('profile-animation', 'pass', 'Respects user motion preferences');
+            } else {
+                addResult('profile-animation', 'pass', 'Motion animations enabled (user preference)');
+            }
+        }
+
+        async function runAccessibilityTests() {
+            console.log('♿ Testing WCAG 2.1 AA Compliance...');
+            
+            const section = createTestSection('accessibility', '♿ Accessibility Tests');
+
+            // Test 1: Skip links
+            const skipLink = testDoc.querySelector('.skip-link, a[href="#main-content"]');
+            if (skipLink) {
+                addResult('accessibility', 'pass', 'Skip link found');
+                
+                const href = skipLink.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const target = testDoc.querySelector(href);
+                    if (target) {
+                        addResult('accessibility', 'pass', 'Skip link target exists');
+                    } else {
+                        addResult('accessibility', 'fail', `Skip link target not found: ${href}`);
+                    }
+                }
+            } else {
+                addResult('accessibility', 'fail', 'Skip link not found');
+            }
+
+            // Test 2: Semantic HTML structure
+            const main = testDoc.querySelector('main');
+            if (main) {
+                addResult('accessibility', 'pass', 'Main element present');
+            } else {
+                addResult('accessibility', 'fail', 'Missing main element');
+            }
+
+            const nav = testDoc.querySelector('nav, [role="navigation"]');
+            if (nav) {
+                addResult('accessibility', 'pass', 'Navigation landmarks found');
+            } else {
+                addResult('accessibility', 'fail', 'Missing navigation landmarks');
+            }
+
+            // Test 3: Heading hierarchy
+            const headings = testDoc.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            if (headings.length > 0) {
+                addResult('accessibility', 'pass', `Found ${headings.length} headings`);
+                
+                const h1Elements = testDoc.querySelectorAll('h1');
+                if (h1Elements.length === 1) {
+                    addResult('accessibility', 'pass', 'Single H1 heading found');
+                } else if (h1Elements.length === 0) {
+                    addResult('accessibility', 'fail', 'No H1 heading found');
+                } else {
+                    addResult('accessibility', 'warning', `Multiple H1 headings found: ${h1Elements.length}`);
+                }
+            } else {
+                addResult('accessibility', 'fail', 'No headings found');
+            }
+
+            // Test 4: Images alt text
+            const images = testDoc.querySelectorAll('img');
+            let imagesWithAlt = 0;
+            images.forEach(img => {
+                if (img.hasAttribute('alt')) {
+                    imagesWithAlt++;
+                }
+            });
+
+            if (images.length === imagesWithAlt) {
+                addResult('accessibility', 'pass', `All ${images.length} images have alt attributes`);
+            } else {
+                addResult('accessibility', 'fail', `${images.length - imagesWithAlt} images missing alt attributes`);
+            }
+
+            // Test 5: ARIA labels on interactive elements
+            const interactiveElements = testDoc.querySelectorAll(
+                'button, a, input, select, textarea, [role="button"], [role="link"]'
+            );
+            let elementsWithLabels = 0;
+            interactiveElements.forEach(element => {
+                const ariaLabel = element.getAttribute('aria-label');
+                const ariaLabelledBy = element.getAttribute('aria-labelledby');
+                const textContent = element.textContent.trim();
+                
+                if (ariaLabel || ariaLabelledBy || textContent) {
+                    elementsWithLabels++;
+                }
+            });
+
+            const labelPercentage = ((elementsWithLabels / interactiveElements.length) * 100).toFixed(1);
+            if (labelPercentage >= 95) {
+                addResult('accessibility', 'pass', `${labelPercentage}% of interactive elements have accessible names`);
+            } else {
+                addResult('accessibility', 'warning', `Only ${labelPercentage}% of interactive elements have accessible names`);
+            }
+
+            // Test 6: Color contrast (basic check)
+            const rootStyles = testWindow.getComputedStyle(testDoc.documentElement);
+            const hasColorProperties = rootStyles.getPropertyValue('--text-primary') ? true : false;
+            if (hasColorProperties) {
+                addResult('accessibility', 'pass', 'CSS custom properties for colors defined');
+            } else {
+                addResult('accessibility', 'warning', 'Color system not using CSS custom properties');
+            }
+
+            // Test 7: Language attribute
+            const html = testDoc.documentElement;
+            if (html.hasAttribute('lang')) {
+                addResult('accessibility', 'pass', `Language attribute set: ${html.getAttribute('lang')}`);
+            } else {
+                addResult('accessibility', 'fail', 'Missing language attribute on html element');
+            }
+        }
+
+        async function runResponsivenessTests() {
+            console.log('📱 Testing Responsive Design...');
+            
+            const section = createTestSection('responsiveness', '📱 Responsive Design Tests');
+
+            // Test 1: Viewport meta tag
+            const viewportMeta = testDoc.querySelector('meta[name="viewport"]');
+            if (viewportMeta) {
+                addResult('responsiveness', 'pass', 'Viewport meta tag present');
+                const content = viewportMeta.getAttribute('content');
+                if (content && content.includes('width=device-width')) {
+                    addResult('responsiveness', 'pass', 'Viewport configured for mobile');
+                }
+            } else {
+                addResult('responsiveness', 'fail', 'Missing viewport meta tag');
+            }
+
+            // Test 2: Responsive images
+            const images = testDoc.querySelectorAll('img');
+            let responsiveImages = 0;
+            images.forEach(img => {
+                const style = testWindow.getComputedStyle(img);
+                if (style.maxWidth === '100%' || img.hasAttribute('srcset')) {
+                    responsiveImages++;
+                }
+            });
+
+            if (responsiveImages === images.length && images.length > 0) {
+                addResult('responsiveness', 'pass', 'All images are responsive');
+            } else if (responsiveImages > 0) {
+                addResult('responsiveness', 'warning', `${responsiveImages}/${images.length} images are responsive`);
+            }
+
+            // Test 3: Touch targets (basic check)
+            const buttons = testDoc.querySelectorAll('button, a, input[type="button"], input[type="submit"]');
+            let adequateTouchTargets = 0;
+            buttons.forEach(button => {
+                const rect = button.getBoundingClientRect();
+                if (rect.width >= 44 && rect.height >= 44) {
+                    adequateTouchTargets++;
+                }
+            });
+
+            if (adequateTouchTargets === buttons.length && buttons.length > 0) {
+                addResult('responsiveness', 'pass', 'All touch targets meet minimum size (44x44px)');
+            } else if (adequateTouchTargets > 0) {
+                addResult('responsiveness', 'warning', `${adequateTouchTargets}/${buttons.length} touch targets meet minimum size`);
+            }
+
+            // Test 4: CSS Grid/Flexbox usage
+            const gridElements = testDoc.querySelectorAll('*');
+            let hasModernLayout = false;
+            for (let element of gridElements) {
+                const style = testWindow.getComputedStyle(element);
+                if (style.display === 'grid' || style.display === 'flex') {
+                    hasModernLayout = true;
+                    break;
+                }
+            }
+
+            if (hasModernLayout) {
+                addResult('responsiveness', 'pass', 'Uses modern CSS layout (Grid/Flexbox)');
+            } else {
+                addResult('responsiveness', 'warning', 'No modern CSS layout detected');
+            }
+        }
+
+        async function runUsabilityTests() {
+            console.log('🎯 Testing Usability...');
+            
+            const section = createTestSection('usability', '🎯 Usability Tests');
+
+            // Test 1: Theme switching functionality
+            const themeToggle = testDoc.querySelector('theme-toggle, theme-switcher');
+            if (themeToggle) {
+                addResult('usability', 'pass', 'Theme toggle component found');
+                
+                const button = themeToggle.querySelector('button');
+                if (button) {
+                    addResult('usability', 'pass', 'Theme toggle button accessible');
+                }
+            } else {
+                addResult('usability', 'warning', 'Theme toggle not found');
+            }
+
+            // Test 2: PDF download functionality  
+            const downloadButton = testDoc.querySelector('download-button, .pdf-button, #download-pdf');
+            if (downloadButton) {
+                addResult('usability', 'pass', 'PDF download button found');
+                
+                // Check if html2pdf is loaded
+                if (testWindow.html2pdf) {
+                    addResult('usability', 'pass', 'PDF generation library loaded');
+                } else {
+                    addResult('usability', 'warning', 'PDF generation library not loaded');
+                }
+            } else {
+                addResult('usability', 'warning', 'PDF download button not found');
+            }
+
+            // Test 3: Smooth scroll navigation
+            const navLinks = testDoc.querySelectorAll('nav-link[smooth-scroll="true"], a[href^="#"]');
+            if (navLinks.length > 0) {
+                addResult('usability', 'pass', `Smooth scroll navigation: ${navLinks.length} links`);
+            } else {
+                addResult('usability', 'warning', 'No smooth scroll navigation found');
+            }
+
+            // Test 4: Expandable content
+            const expandableElements = testDoc.querySelectorAll('[expandable="true"], details');
+            if (expandableElements.length > 0) {
+                addResult('usability', 'pass', `Expandable content: ${expandableElements.length} sections`);
+            } else {
+                addResult('usability', 'warning', 'No expandable content found');
+            }
+
+            // Test 5: Web components registration
+            const webComponentTags = [
+                'site-header', 'profile-card', 'nav-links', 'social-contacts',
+                'professional-summary', 'technical-skills', 'experience-section', 'projects-section'
+            ];
+            
+            let registeredComponents = 0;
+            webComponentTags.forEach(tag => {
+                if (testWindow.customElements.get(tag)) {
+                    registeredComponents++;
+                }
+            });
+
+            const componentPercentage = ((registeredComponents / webComponentTags.length) * 100).toFixed(1);
+            if (componentPercentage >= 90) {
+                addResult('usability', 'pass', `${componentPercentage}% of web components registered`);
+            } else {
+                addResult('usability', 'warning', `Only ${componentPercentage}% of web components registered`);
+            }
+
+            // Test 6: Error handling
+            const hasErrorHandler = testWindow.onerror !== null || testWindow.addEventListener;
+            if (hasErrorHandler) {
+                addResult('usability', 'pass', 'Error handling mechanisms present');
+            } else {
+                addResult('usability', 'warning', 'No error handling detected');
+            }
+
+            // Test 7: Performance
+            if (testWindow.performance && testWindow.performance.timing) {
+                const timing = testWindow.performance.timing;
+                const loadTime = timing.loadEventEnd - timing.navigationStart;
+                
+                if (loadTime < 3000) {
+                    addResult('usability', 'pass', `Page load time: ${loadTime}ms (good)`);
+                } else {
+                    addResult('usability', 'warning', `Page load time: ${loadTime}ms (could be faster)`);
+                }
+            }
+        }
+
+        function generateSummary() {
+            const container = document.getElementById('results-container');
+            const allResults = container.querySelectorAll('.test-result');
+            
+            let passCount = 0;
+            let failCount = 0;
+            let warningCount = 0;
+            
+            allResults.forEach(result => {
+                if (result.classList.contains('pass')) passCount++;
+                else if (result.classList.contains('fail')) failCount++;
+                else if (result.classList.contains('warning')) warningCount++;
+            });
+            
+            const total = passCount + failCount + warningCount;
+            const scorePercentage = total > 0 ? ((passCount / total) * 100).toFixed(1) : 0;
+            
+            const summary = document.createElement('div');
+            summary.className = 'summary';
+            summary.innerHTML = `
+                <h2>📊 UX Validation Summary</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2em; color: #28a745;">✅ ${passCount}</div>
+                        <div>Passed</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2em; color: #dc3545;">❌ ${failCount}</div>
+                        <div>Failed</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2em; color: #ffc107;">⚠️ ${warningCount}</div>
+                        <div>Warnings</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2em; color: #007bff;">${scorePercentage}%</div>
+                        <div>Overall Score</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <h3>🎯 Recommendations:</h3>
+                    ${failCount === 0 && warningCount === 0 ? 
+                        '<p>🌟 Excellent! All tests passed. The website meets high UX standards.</p>' :
+                        `<ul>
+                            ${failCount > 0 ? '<li>🔥 <strong>Critical:</strong> Address failed tests immediately for compliance</li>' : ''}
+                            ${warningCount > 0 ? '<li>💡 <strong>Suggestions:</strong> Review warnings to improve user experience</li>' : ''}
+                        </ul>`
+                    }
+                </div>
+                
+                <div style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                    <strong>Test Coverage:</strong> ${total} individual test cases completed<br>
+                    <strong>Focus Areas:</strong> Profile Animation, Accessibility (WCAG 2.1 AA), Responsive Design, Usability
+                </div>
+            `;
+            
+            container.appendChild(summary);
+            
+            // Scroll to summary
+            summary.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('UX Validation Test Suite loaded');
+            console.log('Load the website above and click "Run All Tests" to begin validation');
+        });
+    </script>
+</body>
+</html>

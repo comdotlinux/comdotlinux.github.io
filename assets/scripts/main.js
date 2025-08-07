@@ -1139,6 +1139,54 @@ window.testPDF = function() {
   window.downloadPDF();
 };
 
+// Add profile animation test function
+window.testProfileAnimation = function() {
+  console.log('Testing profile animation...');
+  
+  const header = document.querySelector('site-header');
+  const compactProfile = document.querySelector('profile-card[compact="true"]');
+  const socialContacts = document.querySelector('social-contacts[position="dynamic"]');
+  const mainProfile = document.querySelector('profile-card[main="true"]');
+  
+  console.log('Header:', header);
+  console.log('Compact profile:', compactProfile);
+  console.log('Social contacts:', socialContacts);
+  console.log('Main profile:', mainProfile);
+  
+  if (header) {
+    console.log('Header classes:', header.className);
+    console.log('Toggling profile-visible class...');
+    
+    // Toggle the class to test animation
+    header.classList.toggle('profile-visible');
+    console.log('Header classes after toggle:', header.className);
+    
+    // Show element states
+    if (compactProfile) {
+      console.log('Compact profile display:', window.getComputedStyle(compactProfile).display);
+      console.log('Compact profile opacity:', window.getComputedStyle(compactProfile).opacity);
+      console.log('Compact profile transform:', window.getComputedStyle(compactProfile).transform);
+    }
+  }
+};
+
+// Add global function to manually trigger profile animation
+window.showHeaderProfile = function() {
+  const header = document.querySelector('site-header');
+  if (header) {
+    header.classList.add('profile-visible');
+    console.log('Header profile shown');
+  }
+};
+
+window.hideHeaderProfile = function() {
+  const header = document.querySelector('site-header');
+  if (header) {
+    header.classList.remove('profile-visible');
+    console.log('Header profile hidden');
+  }
+};
+
 // Remove click events on mouse use (for better keyboard navigation UX)
 document.addEventListener('mousedown', () => {
   document.body.classList.remove('keyboard-navigation');
