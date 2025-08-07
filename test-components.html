@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Web Components</title>
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/styles/themes.css">
+    <link rel="stylesheet" href="assets/styles/components.css">
+</head>
+<body>
+    <h1>Testing Web Components</h1>
+    
+    <div style="border: 2px solid red; padding: 20px; margin: 20px;">
+        <h2>Site Header Component</h2>
+        <site-header sticky="true" blur="true">
+            <profile-card compact="true" hidden-initial="true" name="Test User" title="Test Title" photo="assets/images/profile.jpg"></profile-card>
+        </site-header>
+    </div>
+    
+    <div style="border: 2px solid blue; padding: 20px; margin: 20px; margin-top: 200px;">
+        <h2>Main Profile Component</h2>
+        <profile-card name="Main User" title="Main Title" location="Test City" main="true" photo="assets/images/profile.jpg"></profile-card>
+    </div>
+    
+    <script src="assets/scripts/components/base-component.js"></script>
+    <script src="assets/scripts/components/site-header.js"></script>
+    <script src="assets/scripts/components/profile-components.js"></script>
+    
+    <script>
+        console.log('Testing components...');
+        
+        setTimeout(() => {
+            const header = document.querySelector('site-header');
+            const profileCompact = document.querySelector('profile-card[compact="true"]');
+            const profileMain = document.querySelector('profile-card[main="true"]');
+            
+            console.log('Header element:', header);
+            console.log('Compact profile:', profileCompact);
+            console.log('Main profile:', profileMain);
+            
+            if (header) {
+                console.log('Header innerHTML:', header.innerHTML);
+            }
+            
+            if (profileCompact) {
+                console.log('Compact profile innerHTML:', profileCompact.innerHTML);
+            }
+            
+            if (profileMain) {
+                console.log('Main profile innerHTML:', profileMain.innerHTML);
+            }
+            
+            // Test toggle
+            if (header) {
+                console.log('Testing profile toggle...');
+                header.classList.add('profile-visible');
+                console.log('Added profile-visible class');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

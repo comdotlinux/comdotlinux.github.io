@@ -1,5 +1,31 @@
 /* Component Styles */
 
+/* Prevent layout shift while components load */
+resume-app:not(.loaded) {
+  min-height: 100vh;
+  display: block;
+}
+
+experience-section,
+skills-grid,
+projects-showcase,
+professional-summary {
+  display: block;
+  min-height: 200px;
+}
+
+/* Prevent FOUC (Flash of Unstyled Content) */
+:not(:defined) {
+  display: block;
+  min-height: 50px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+:defined {
+  opacity: 1;
+}
+
 /* Navigation Header */
 nav-header {
   position: fixed;

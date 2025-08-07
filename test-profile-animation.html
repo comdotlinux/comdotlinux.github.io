@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Profile Animation</title>
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/styles/themes.css">
+    <link rel="stylesheet" href="assets/styles/components.css">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            height: 200vh; /* Make page scrollable */
+        }
+        .test-section {
+            padding: 20px;
+            border: 2px solid blue;
+            margin: 20px;
+        }
+        .spacer {
+            height: 100vh;
+            background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Site Header (should receive profile when scrolled) -->
+    <site-header sticky="true" blur="true">
+        <nav-header slot="nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+        </nav-header>
+        <social-contacts 
+            slot="social" 
+            linkedin="https://linkedin.com/in/guruprasadkulkarni"
+            github="https://github.com/comdotlinux">
+        </social-contacts>
+    </site-header>
+
+    <!-- Main Profile Section (should disappear from here when scrolled) -->
+    <div class="test-section" style="margin-top: 100px;">
+        <h2>Main Profile Section</h2>
+        <profile-section id="home">
+            <profile-card 
+                name="Guruprasad Kulkarni"
+                title="Senior Java Developer"
+                location="München, Germany"
+                tagline="Java / Kotlin / Dart / Javascript"
+                photo="assets/images/profile.jpg"
+                main="true">
+            </profile-card>
+        </profile-section>
+    </div>
+
+    <!-- Spacer to test scrolling -->
+    <div class="spacer">
+        <h1>Scroll up to see profile animation!</h1>
+    </div>
+
+    <!-- Load all required scripts -->
+    <script src="assets/scripts/components/base-component.js"></script>
+    <script src="assets/scripts/components/site-header.js"></script>
+    <script src="assets/scripts/components/profile-components.js"></script>
+    <script src="assets/scripts/components/social-components.js"></script>
+    <script src="assets/scripts/components/navigation-components.js"></script>
+    
+    <script>
+        // Debug logging
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('=== Profile Animation Test ===');
+            
+            const header = document.querySelector('site-header');
+            const mainProfile = document.querySelector('profile-card[main="true"]');
+            const profileSection = document.querySelector('profile-section');
+            
+            console.log('Header found:', !!header);
+            console.log('Main profile found:', !!mainProfile);
+            console.log('Profile section found:', !!profileSection);
+            
+            // Log when profile visibility changes
+            if (header) {
+                const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                            const isVisible = header.classList.contains('profile-visible');
+                            console.log('Header profile visibility changed:', isVisible);
+                        }
+                    });
+                });
+                
+                observer.observe(header, { attributes: true });
+            }
+            
+            // Log scroll position
+            let lastLogTime = 0;
+            window.addEventListener('scroll', () => {
+                const now = Date.now();
+                if (now - lastLogTime > 100) { // Throttle logging
+                    console.log('Scroll position:', window.scrollY);
+                    lastLogTime = now;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

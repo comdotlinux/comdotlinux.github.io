@@ -93,6 +93,8 @@ li {
 .main-content {
   padding-top: 4rem; /* Account for fixed navigation */
   min-height: calc(100vh - 4rem);
+  /* Prevent layout shift */
+  contain: layout style;
 }
 
 /* Section Spacing */

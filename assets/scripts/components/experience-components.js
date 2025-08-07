@@ -5,15 +5,20 @@
 class ExperienceSection extends BaseComponent {
   connectedCallback() {
     super.connectedCallback();
-    this.setupExperienceCards();
+    // Delay setup to ensure all child components are initialized
+    requestAnimationFrame(() => {
+      this.setupExperienceCards();
+    });
   }
   
   setupExperienceCards() {
     const experienceCards = this.$$('experience-card');
     
     experienceCards.forEach((card, index) => {
-      // Set up individual card interactions
-      card.setupInteractions();
+      // Set up individual card interactions if method exists
+      if (card.setupInteractions) {
+        card.setupInteractions();
+      }
       
       // Stagger animations
       card.style.setProperty('--animation-delay', `${index * 150}ms`);
