@@ -12,25 +12,34 @@
     <meta property="og:title" content="Guruprasad Kulkarni - Senior Java Developer">
     <meta property="og:description" content="12+ years Programming experience with Java, Kotlin, Spring Framework, and cloud technologies.">
     <meta property="og:url" content="https://bio.kulkarni.cloud">
-    <meta property="og:image" content="https://bio.kulkarni.cloud/assets/images/profile.jpg">
+    <meta property="og:image" content="https://bio.kulkarni.cloud/assets/images/profile.webp">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Guruprasad Kulkarni - Senior Java Developer">
     <meta name="twitter:description" content="12+ years Programming experience with Java, Kotlin, Spring Framework, and cloud technologies.">
-    <meta name="twitter:image" content="https://bio.kulkarni.cloud/assets/images/profile.jpg">
+    <meta name="twitter:image" content="https://bio.kulkarni.cloud/assets/images/profile.webp">
     
     <title>Guruprasad Kulkarni - Senior Java Developer</title>
     
+    <!-- Preconnect to external CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
     <!-- Preload critical resources -->
     <link rel="preload" href="assets/styles/main.css" as="style">
-    <link rel="preload" href="assets/images/profile.jpg" as="image">
+    <link rel="preload" href="assets/images/profile.webp" as="image">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/styles/main.css">
-    <link rel="stylesheet" href="assets/styles/themes.css">
-    <link rel="stylesheet" href="assets/styles/components.css">
+    <link rel="stylesheet" href="assets/styles/themes.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="assets/styles/components.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="assets/styles/print.css" media="print">
+    
+    <!-- Fallback for users without JavaScript -->
+    <noscript>
+        <link rel="stylesheet" href="assets/styles/themes.css">
+        <link rel="stylesheet" href="assets/styles/components.css">
+    </noscript>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -64,7 +73,10 @@
                     </div>
                     
                     <div class="nav-profile">
-                        <img src="assets/images/profile.jpg" alt="Guruprasad Kulkarni" class="nav-profile-image">
+                        <picture>
+                            <source srcset="assets/images/profile.webp" type="image/webp">
+                            <img src="assets/images/profile-optimized.jpg" alt="Guruprasad Kulkarni" class="nav-profile-image">
+                        </picture>
                         <div class="nav-profile-info">
                             <span class="nav-profile-name">Guruprasad Kulkarni</span>
                             <span class="nav-profile-title">Senior Java Developer</span>
@@ -113,7 +125,10 @@
                 <resume-header>
                     <div class="header-content">
                         <div class="profile-info">
-                            <img src="assets/images/profile.jpg" alt="Guruprasad Kulkarni" class="profile-image" width="120" height="120">
+                            <picture>
+                                <source srcset="assets/images/profile.webp" type="image/webp">
+                                <img src="assets/images/profile-optimized.jpg" alt="Guruprasad Kulkarni" class="profile-image" width="120" height="120">
+                            </picture>
                             <div class="profile-text">
                                 <h1 id="header-title" class="name">Guruprasad Kulkarni</h1>
                                 <p class="title">Senior Java Developer</p>
@@ -478,8 +493,24 @@
     </resume-app>
     
     
-    <!-- PDF Generation Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- PDF Generation Library - Load asynchronously -->
+    <script>
+        // Load html2pdf.js only when needed (on PDF button click)
+        window.loadPDFLibrary = function() {
+            return new Promise((resolve, reject) => {
+                if (window.html2pdf) {
+                    resolve();
+                    return;
+                }
+                
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        };
+    </script>
     
     <!-- Scripts -->
     <script src="assets/data/resume-data.js"></script>

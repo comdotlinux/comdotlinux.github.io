@@ -459,15 +459,14 @@ class ResumeApplication {
   /**
    * Download resume as PDF
    */
-  downloadPDF() {
+  async downloadPDF() {
     console.log('PDF download initiated');
-    console.log('html2pdf available:', typeof html2pdf !== 'undefined');
     
     // Add loading indicator
     const pdfButton = document.getElementById('download-pdf');
     if (pdfButton) {
       const originalText = pdfButton.textContent;
-      pdfButton.textContent = 'Generating PDF...';
+      pdfButton.textContent = 'Loading PDF Library...';
       pdfButton.disabled = true;
       
       // Reset button after 15 seconds regardless
@@ -477,11 +476,28 @@ class ResumeApplication {
       }, 15000);
     }
     
-    if (typeof html2pdf === 'undefined') {
-      console.warn('html2pdf library not loaded, falling back to print');
+    // Load PDF library if not available
+    try {
+      if (typeof html2pdf === 'undefined') {
+        console.log('Loading html2pdf library...');
+        if (pdfButton) {
+          pdfButton.textContent = 'Loading PDF Library...';
+        }
+        await window.loadPDFLibrary();
+        console.log('html2pdf library loaded successfully');
+      }
+    } catch (error) {
+      console.error('Failed to load html2pdf library:', error);
       this.fallbackPrint();
       return;
     }
+    
+    // Update loading text
+    if (pdfButton) {
+      pdfButton.textContent = 'Generating PDF...';
+    }
+    
+    console.log('html2pdf available:', typeof html2pdf !== 'undefined');
     
     // Try simple approach first
     this.generateSimplePDF();
