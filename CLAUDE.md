@@ -46,6 +46,7 @@ The website uses modern web standards with no build process:
     - `main.css` - Core layout and typography
     - `themes.css` - Light/dark theme definitions with CSS custom properties
     - `components.css` - Component-specific styling
+    - `mobile.css` - Mobile/tablet responsive overrides and media queries
     - `print.css` - PDF/print optimized styles
     - `layout.css`, `unified-layout.css` - Alternative layout options
     - `*-resume.css` - Different resume style variations
@@ -139,6 +140,58 @@ The website includes a PDF download feature that must generate a traditional res
 - **PDF Export**: Client-side generation with html2pdf.js, fallback to print dialog
 - **Performance**: Intersection observers, minimal DOM manipulation, lazy loading patterns
 
+## Responsive Design Guidelines
+
+### Critical Layout Behavior
+- **Desktop (>1024px)**: Side-by-side layout with Experience on left, Skills on right sidebar
+- **Mobile/Tablet (≤1024px)**: Stacked layout with Experience first, then Skills below
+
+### Navigation Header Behavior
+- **Desktop**: Shows brand text ("Guruprasad Kulkarni") on initial load, switches to profile + social links when scrolled
+- **Mobile/Tablet (≤1024px)**: Always shows profile image + info + social links (scrolled state style)
+- **Mobile/Tablet (≤1024px)**: Main header profile section and contact links are HIDDEN
+
+### Mobile-First CSS Architecture
+- `main.css` - Desktop-first base styles and grid layouts
+- `mobile.css` - Mobile-specific overrides with media queries
+- `components.css` - Component styling with responsive considerations
+
+### Media Query Breakpoints
+- `@media (max-width: 1024px)` - Primary mobile/tablet breakpoint
+- `@media (max-width: 767px)` - Mobile-specific adjustments
+- `@media (max-width: 480px)` - Small mobile optimizations
+
+### Performance Optimizations Applied
+- Optimized profile image from 1.2MB to 21KB with WebP format
+- Deferred non-critical CSS loading for components and themes
+- Lazy-loaded html2pdf.js library to reduce initial bundle size
+- Added explicit image dimensions to prevent Cumulative Layout Shift (CLS)
+- CSS containment and min-heights to prevent layout thrashing
+
+## Critical Development Rules
+
+### NEVER Break Desktop Layout
+- Desktop layout (>1024px) must remain unchanged when making mobile adjustments
+- Use media queries `@media (max-width: 1024px)` for mobile-only changes
+- Test both desktop AND mobile after every change
+- Desktop navigation scrolling behavior must remain intact
+
+### Mobile Navigation Requirements
+- Below 1024px: Hide main header profile section completely
+- Below 1024px: Show profile + social links in navigation header (scrolled state)
+- Below 1024px: Hide brand text in navigation
+- Never add mobile menus or hamburger toggles unless explicitly requested
+
+### Layout Order Requirements
+- Desktop: Experience (left) + Skills (right sidebar)
+- Mobile: Experience first, then Skills below
+- Use CSS `order` property in media queries to control layout sequence
+
+### File Organization
+- `main.css`: Desktop-first base styles, avoid mobile-specific code here
+- `mobile.css`: All mobile overrides with proper media queries
+- `components.css`: Component styles that work across all breakpoints
+
 ## Testing and Debugging
 
 - Use browser DevTools to inspect Web Components
@@ -146,3 +199,5 @@ The website includes a PDF download feature that must generate a traditional res
 - Test PDF functionality: `window.testPDF()` function available
 - Theme switching: Persisted in localStorage, respects system preferences
 - Multiple layout variations available for testing different designs
+- **CRITICAL**: Test at 1024px, 768px, and 480px breakpoints after changes
+- **CRITICAL**: Verify desktop layout (>1024px) remains unchanged
